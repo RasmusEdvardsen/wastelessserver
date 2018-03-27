@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2027
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wasteless", "wasteless\wasteless.csproj", "{D727DA9B-4DCD-44A8-BD97-D5E1D0F2AAFC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D727DA9B-4DCD-44A8-BD97-D5E1D0F2AAFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D727DA9B-4DCD-44A8-BD97-D5E1D0F2AAFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D727DA9B-4DCD-44A8-BD97-D5E1D0F2AAFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D727DA9B-4DCD-44A8-BD97-D5E1D0F2AAFC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {282E36D6-3B6C-4D87-91D6-DF28C857EB46}
+	EndGlobalSection
+EndGlobal
