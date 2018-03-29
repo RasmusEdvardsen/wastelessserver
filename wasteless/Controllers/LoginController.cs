@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using wasteless.Forms;
+using wasteless.Services;
 
 namespace wasteless.Controllers
 {
@@ -16,7 +18,7 @@ namespace wasteless.Controllers
             {
                 try
                 {
-                    //DBMVCService.Login
+                    if (DBService.FormLogin(loginForm))
                     return View();
                 }
                 catch (Exception ex)
@@ -28,6 +30,7 @@ namespace wasteless.Controllers
             {
                 return View("~/Views/Shared/Error.cshtml");
             }
+            return View("~/Views/Shared/Error.cshtml");
         }
     }
 }

@@ -10,12 +10,8 @@ namespace wasteless.Controllers
 {
     public class HomeController : Controller
     {
-        private static readonly string connString = ConfigurationManager.ConnectionStrings["wastelessDB"].ConnectionString;
-        // GET: Login
         public ActionResult Home()
         {
-            //SqlConnection conn = new SqlConnection(connString);
-            //conn.Open();
             return View();
         }
     }
