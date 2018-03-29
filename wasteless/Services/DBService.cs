@@ -56,7 +56,21 @@ namespace wasteless.Services
                     {
                         while (reader.Read())
                         {
-
+                            try
+                            {
+                                foodTypes.Add(new FoodTypeDTO()
+                                {
+                                    FoodTypeID = !reader.IsDBNull(0) ? reader.GetInt32(0) : -1,
+                                    FoodType = !reader.IsDBNull(1) ? reader.GetString(1) : "",
+                                    Code = !reader.IsDBNull(2) ? reader.GetString(2) : "",
+                                    Created = reader.GetDateTime(3),
+                                    GUID = reader.GetGuid(4)
+                                });
+                            }
+                            catch (Exception e)
+                            {
+                                //A tuple failed, should log somewhere.
+                            }
                         }
                     }
                     return foodTypes;

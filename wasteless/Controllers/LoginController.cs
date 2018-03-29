@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using wasteless.Forms;
+using wasteless.Resolvers;
 using wasteless.Services;
 
 namespace wasteless.Controllers
@@ -19,7 +20,7 @@ namespace wasteless.Controllers
                 try
                 {
                     if (DBService.FormLogin(loginForm))
-                    return View();
+                        return View(ListableFoodTypeResolver.GetListableFoodTypeResolver());
                 }
                 catch (Exception ex)
                 {

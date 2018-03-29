@@ -1,7 +1,37 @@
-﻿
-@{
-    ViewBag.Title = "Login";
+﻿@model wasteless.Models.ListableFoodTypeViewModel
+<h2>Welcome. Currently showing @Model.ListableFoodTypeDTO.Count() different food types.</h2>
+
+<!--table creation-->
+@if (Model.ListableFoodTypeDTO.Any())
+{
+    var namesForColumns = Model.ListableFoodTypeDTO.First();
+    <table class="table table-hover table-bordered table-striped table-responsive">
+        <thead style="color: #fff;background-color: #212529;border-color: #32383e;">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">@nameof(namesForColumns.FoodTypeID)</th>
+                <th scope="col">@nameof(namesForColumns.FoodType)</th>
+                <th scope="col">@nameof(namesForColumns.Code)</th>
+                <th scope="col">@nameof(namesForColumns.Created)</th>
+                <th scope="col">@nameof(namesForColumns.GUID)</th>
+            </tr>
+        </thead>
+        <tbody>
+        @{ 
+            var counter = 1;
+            foreach (var foodType in Model.ListableFoodTypeDTO)
+            {
+                <tr>
+                <th scope="row">@counter</th>
+                <td>@foodType.FoodTypeID</td>
+                <td>@foodType.FoodType</td>
+                <td>@foodType.Code</td>
+                <td>@foodType.Created</td>
+                <td>@foodType.GUID</td>
+                </tr>
+                counter++;
+            }
+        }
+        </tbody>
+    </table>
 }
-
-<h2>Login</h2>
-
