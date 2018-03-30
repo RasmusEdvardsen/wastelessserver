@@ -1,7 +1,7 @@
 ﻿@model wasteless.Forms.LoginForm
 <div class="jumbotron" style="margin-top:5rem;">
     <section id="loginForm">
-        @using (Html.BeginForm("Login", "Login", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        @using (Html.BeginForm("Login", "FoodType", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
         {
             @Html.AntiForgeryToken()
             <h4>Use a local account to log in.</h4>

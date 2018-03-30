@@ -1,0 +1,68 @@
+﻿@model wasteless.Models.ListableFoodTypeViewModel
+<h2>Welcome. Currently showing @Model.ListableFoodTypeDTO.Count() different food types.</h2>
+
+<div class="container">
+    <div class="row" style="margin-top:4rem;margin-bottom:2rem;">
+        <div class="col-sm-4" id="actionsbar">
+            <button type="button" class="btn btn-info" id="createfoodtype">Create FoodType +</button>
+        </div>
+        
+        <!--Hidden Form Area-->
+        <div class="col-sm-4" id="createfoodtypeform" style="display:none;">
+            <button type="button" class="btn btn-default" id="returntoactionsbar" style="margin-bottom:1rem;width:12rem;">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"> Return</span>
+            </button>
+            <form action="/">
+                <input type="text" class="form-control" id="createfoodtypename" aria-describedby="Food Type Name" placeholder="Type of food" style="max-width:100%;margin-bottom:1rem;" />
+                <input type="text" class="form-control" id="createfoodtypecode" aria-describedby="Food Type Code" placeholder="Food code" style="max-width:100%;"/>
+                <button type="submit" class="btn btn-info" style="margin-top:1rem;float:right;width:12rem;">Create</button>
+            </form>
+        </div>
+
+        <div class="col-sm-8" style="text-align:end">
+            <form action="/">
+                <input type="search" class="form-control" id="searchinput" aria-describedby="Search Input" placeholder="Search for food type" style="display:inline-block;" />
+                <button type="submit" class="btn btn-success" style="display:inline-block;">Search</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--table creation-->
+@if (Model.ListableFoodTypeDTO.Any())
+{
+    var namesForColumns = Model.ListableFoodTypeDTO.First();
+    <table class="table table-hover table-bordered table-striped table-responsive">
+        <thead style="color: #fff;background-color: #212529;border-color: #32383e;">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">@nameof(namesForColumns.FoodTypeID)</th>
+                <th scope="col">@nameof(namesForColumns.FoodType)</th>
+                <th scope="col">@nameof(namesForColumns.Code)</th>
+                <th scope="col">@nameof(namesForColumns.Created)</th>
+                <th scope="col">@nameof(namesForColumns.GUID)</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        @{ 
+            var counter = 1;
+            foreach (var foodType in Model.ListableFoodTypeDTO)
+            {
+                <tr>
+                <th scope="row">@counter</th>
+                <td>@foodType.FoodTypeID</td>
+                <td>@foodType.FoodType</td>
+                <td>@foodType.Code</td>
+                <td>@foodType.Created</td>
+                <td>@foodType.GUID</td>
+                <td align="center">
+                    <button type="button" class="btn btn-danger">Delete</button>
+                </td>
+                </tr>
+                counter++;
+            }
+        }
+        </tbody>
+    </table>
+}

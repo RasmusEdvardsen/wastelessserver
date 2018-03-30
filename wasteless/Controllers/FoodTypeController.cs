@@ -10,7 +10,7 @@ using wasteless.Services;
 
 namespace wasteless.Controllers
 {
-    public class LoginController : Controller
+    public class FoodTypeController : Controller
     {
         [HttpPost]
         public ActionResult Login(LoginForm loginForm)
@@ -20,7 +20,7 @@ namespace wasteless.Controllers
                 try
                 {
                     if (DBService.FormLogin(loginForm))
-                        return View(ListableFoodTypeResolver.GetListableFoodTypeResolver());
+                        return View("~/Views/FoodType/FoodType.cshtml", ListableFoodTypeResolver.GetListableFoodTypeResolver());
                 }
                 catch (Exception ex)
                 {

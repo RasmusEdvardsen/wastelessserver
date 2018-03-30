@@ -12,6 +12,8 @@ namespace wasteless.Controllers
     {
         public ActionResult Home()
         {
+            //TODO: Put Login here, and return partial that contains button to redirect to foodtypemvc. makes more sense.
+            //TODO: When successful login, give squares with options in them [Food Types] [Logout], etc...
             return View();
         }
     }
