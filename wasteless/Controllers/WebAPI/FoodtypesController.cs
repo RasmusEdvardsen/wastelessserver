@@ -4,7 +4,8 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using wasteless.Constants;
+using wasteless.DTOs;
+using wasteless.Services;
 
 namespace wasteless.Controllers.WebAPI
 {
@@ -17,13 +18,10 @@ namespace wasteless.Controllers.WebAPI
         }
 
         // GET: api/Foodtypes/5
-        public string Get(string query, string options)
+        public List<FoodTypeDTO> Get(string query, string options)
         {
-            var queryToUse = QueryTemplates.getTemplate(options);
-
-            //DB call here.
-
-            return "value";
+            var searchResult = DBService.GetSearchResultListableFoods(query, options);
+            return searchResult;
         }
 
         // POST: api/Foodtypes
