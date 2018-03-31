@@ -149,9 +149,11 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Constants\QueryTemplates.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\FoodTypeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Controllers\WebAPI\FoodtypesController.cs" />
     <Compile Include="DTOs\FoodTypeDTO.cs" />
     <Compile Include="Forms\LoginForm.cs" />
     <Compile Include="Global.asax.cs">

@@ -81,5 +81,10 @@ namespace wasteless.Services
                 return foodTypes;
             }
         }
+
+        public static List<FoodTypeDTO> GetSearchedListableFoods()
+        {
+            return new List<FoodTypeDTO>();
+        }
     }
 }

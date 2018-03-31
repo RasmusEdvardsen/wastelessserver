@@ -10,7 +10,6 @@
         });
     });
     $('#searchbutton').on('click', function () {
-
         //pre ajax
         document.body.style.cursor = 'wait';
         $(this).prop('disabled', true);
@@ -20,12 +19,10 @@
         var $options = $('#queryoptions').val();
 
         $.ajax({
-            url: "/admin/get/?query=" + $query + "&options=" + $options + "/"
+            url: "/api/foodtypes/get/?query=" + $query + "&options=" + $options
         }).done(function (data) {
-            console.log(data)
+            //console.log(data);
             //document.body.style.cursor = 'wait';
-        });
-
-
+        }); 
     });
 });
