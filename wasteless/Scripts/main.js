@@ -47,6 +47,7 @@
                         $('#foodtypetablebody').append(row);
                         counter++;
                     });
+                    $('#foodtypecountrendered').html(data.length)
                 }
             }
         }); 

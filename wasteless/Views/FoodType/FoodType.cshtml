@@ -1,5 +1,5 @@
 ﻿@model wasteless.Models.ListableFoodTypeViewModel
-<h2>Welcome. Currently showing @Model.ListableFoodTypeDTO.Count() different food types.</h2>
+<h2>Welcome. Currently showing <span id="foodtypecountrendered">@Model.ListableFoodTypeDTO.Count()</span> different food types.</h2>
 
 <div class="container">
     <div class="row" style="margin-top:4rem;margin-bottom:2rem;">
@@ -51,15 +51,15 @@
             foreach (var foodType in Model.ListableFoodTypeDTO)
             {
                 <tr>
-                <th scope="row">@counter</th>
-                <td>@foodType.FoodTypeID</td>
-                <td>@foodType.FoodType</td>
-                <td>@foodType.Code</td>
-                <td>@foodType.Created</td>
-                <td>@foodType.GUID</td>
-                <td align="center">
-                    <button type="button" class="btn btn-danger">Delete</button>
-                </td>
+                    <th scope="row">@counter</th>
+                    <td>@foodType.FoodTypeID</td>
+                    <td>@foodType.FoodType</td>
+                    <td>@foodType.Code</td>
+                    <td>@foodType.Created</td>
+                    <td>@foodType.GUID</td>
+                    <td align="center">
+                        <button type="button" class="btn btn-danger">Delete</button>
+                    </td>
                 </tr>
                 counter++;
             }
