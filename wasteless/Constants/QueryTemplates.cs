@@ -7,9 +7,13 @@ namespace wasteless.Constants
 {
     public class QueryTemplates
     {
-        public static readonly string SelectWithContains = "SELECT * FROM FoodTypes WHERE FoodType LIKE '%{0}%'";
-        public static readonly string SelectWithStartsWith = "SELECT * FROM FoodTypes WHERE FoodType LIKE '{0}%'";
-        public static readonly string SelectWithEndsWith = "SELECT * FROM FoodTypes WHERE FoodType LIKE '%{0}'";
+        public static string InsertQuery = "INSERT INTO FoodTypes (FoodType, Code) VALUES (@foodtype, @code)";
+
+        public static string DeleteQuery = "DELETE FROM FoodTypes WHERE FoodTypeID = @id";
+
+        public static string SelectWithContains = "SELECT * FROM FoodTypes WHERE FoodType LIKE '%{0}%'";
+        public static string SelectWithStartsWith = "SELECT * FROM FoodTypes WHERE FoodType LIKE '{0}%'";
+        public static string SelectWithEndsWith = "SELECT * FROM FoodTypes WHERE FoodType LIKE '%{0}'";
 
         public static string getTemplate(string options)
         {

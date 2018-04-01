@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row" style="margin-top:4rem;margin-bottom:2rem;">
         <div class="col-sm-4" id="actionsbar">
-            <button type="button" class="btn btn-info" id="createfoodtype">Create FoodType +</button>
+            <button type="button" class="btn btn-info" id="tofoodtypeform">Create FoodType +</button>
         </div>
         
         <!--Hidden Creation Area-->
@@ -14,7 +14,7 @@
             </button>
             <input type="text" class="form-control" id="createfoodtypename" aria-describedby="Food Type Name" placeholder="Type of food" style="max-width:100%;margin-bottom:1rem;" />
             <input type="text" class="form-control" id="createfoodtypecode" aria-describedby="Food Type Code" placeholder="Food code" style="max-width:100%;"/>
-            <button type="button" class="btn btn-info" style="margin-top:1rem;float:right;width:12rem;">Create</button>
+            <button type="button" class="btn btn-info" id="createfoodtype" style="margin-top:1rem;float:right;width:12rem;">Create</button>
         </div>
 
         <div class="col-sm-8" style="text-align:end">
@@ -52,13 +52,13 @@
             {
                 <tr>
                     <th scope="row">@counter</th>
-                    <td>@foodType.FoodTypeID</td>
+                    <td class="foodtypeid">@foodType.FoodTypeID</td>
                     <td>@foodType.FoodType</td>
                     <td>@foodType.Code</td>
                     <td>@foodType.Created</td>
-                    <td>@foodType.GUID</td>
+                    <td class="guid">@foodType.GUID</td>
                     <td align="center">
-                        <button type="button" class="btn btn-danger">Delete</button>
+                        <button type="button" class="btn btn-danger deletefoodtype">Delete</button>
                     </td>
                 </tr>
                 counter++;

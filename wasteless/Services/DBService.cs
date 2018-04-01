@@ -91,6 +91,7 @@ namespace wasteless.Services
                 using (var conn = new SqlConnection(connString))
                 using (var cmd = conn.CreateCommand())
                 {
+                    //TODO: Change this to comply with sqlparams standards.
                     cmd.CommandText = String.Format(QueryTemplates.getTemplate(options), query);
                     conn.Open();
                     using (var reader = cmd.ExecuteReader())
@@ -120,6 +121,50 @@ namespace wasteless.Services
             catch (Exception e)
             {
                 return foodTypes;
+            }
+        }
+
+        public static void DeleteListableFood(string id)
+        {
+            if (String.IsNullOrWhiteSpace(id)) return;
+            try
+            {
+                using (var conn = new SqlConnection(connString))
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = QueryTemplates.DeleteQuery;
+                    cmd.Parameters.AddWithValue("@id", id.Trim());
+                    conn.Open();
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    return;
+                }
+            }
+            catch (Exception e)
+            {
+                return;
+            }
+        }
+
+        public static void CreateListableFood(string name, string code)
+        {
+            //Do this properly. This is shit.
+            if (String.IsNullOrWhiteSpace(code)) code = "";
+            try
+            {
+                using (var conn = new SqlConnection(connString))
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = QueryTemplates.InsertQuery;
+                    cmd.Parameters.AddRange(new List<SqlParameter> { new SqlParameter("@foodtype", SqlDbType.NVarChar) { Value = name },
+                                                                     new SqlParameter("@code", SqlDbType.NVarChar) { Value = code } }.ToArray());
+                    conn.Open();
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    return;
+                }
+            }
+            catch (Exception e)
+            {
+                return;
             }
         }
     }

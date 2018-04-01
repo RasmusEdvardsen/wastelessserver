@@ -25,8 +25,9 @@ namespace wasteless.Controllers.WebAPI
         }
 
         // POST: api/Foodtypes
-        public void Post([FromBody]string value)
+        public void Post([FromBody]FoodTypePostDTO foodTypePostDTO)
         {
+            DBService.CreateListableFood(foodTypePostDTO.createfoodtypename, foodTypePostDTO.createfoodtypecode);
         }
 
         // PUT: api/Foodtypes/5
@@ -37,6 +38,13 @@ namespace wasteless.Controllers.WebAPI
         // DELETE: api/Foodtypes/5
         public void Delete(int id)
         {
+            DBService.DeleteListableFood(id.ToString());
+        }
+
+        public class FoodTypePostDTO
+        {
+            public string createfoodtypename { get; set; }
+            public string createfoodtypecode { get; set; }
         }
     }
 }
