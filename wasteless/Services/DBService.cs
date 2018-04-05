@@ -14,6 +14,9 @@ namespace wasteless.Services
 {
     public class DBService
     {
+
+        //TODO: ENTITY FRAMEWORK
+
         private static readonly string connString = ConfigurationManager.ConnectionStrings["wastelessDB"].ConnectionString;
 
         public static bool FormLogin(LoginForm loginForm)
@@ -25,12 +28,17 @@ namespace wasteless.Services
                 using (var cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = cmdText;
+
+                    //TODO: ADDWITHVALUE INSTEAD!
                     cmd.Parameters.AddRange(new List<SqlParameter> { new SqlParameter("@email", SqlDbType.NVarChar) { Value = loginForm.Email },
                                                                      new SqlParameter("@password", SqlDbType.NVarChar) { Value = loginForm.Password } }.ToArray());
                     conn.Open();
                     using (var reader = cmd.ExecuteReader())
                     {
+                        //TODO: TEST READER
                         reader.Read();
+
+                        //TODO: SET AS VARIABLES, THEN TEST CONDITION
                         if (reader.GetString(3) != loginForm.Email || reader.GetString(4) != loginForm.Password) return false;
                     }
                     return true;

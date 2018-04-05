@@ -56,21 +56,24 @@
     });
 
     $('.deletefoodtype').on('click', function () {
-        $this = $(this);
-        $parent = $this.parent();
-        $foodtypeid = $parent.siblings('td.foodtypeid');
-        $row = $this.closest('tr');
-        //$guid = $parent.siblings('td.guid');
-        $.ajax({
-            url: "/api/foodtypes/?id=" + $foodtypeid[0].innerHTML,
-            type: 'DELETE',
-            success: function () {
-                console.log($row);
-                $row.fadeOut(function () {
-                    $row.remove();
-                });
-            }
-        });
+        var result = confirm("Want to delete?");
+        if (result) {
+            $this = $(this);
+            $parent = $this.parent();
+            $foodtypeid = $parent.siblings('td.foodtypeid');
+            $row = $this.closest('tr');
+            //$guid = $parent.siblings('td.guid');
+            $.ajax({
+                url: "/api/foodtypes/?id=" + $foodtypeid[0].innerHTML,
+                type: 'DELETE',
+                success: function () {
+                    console.log($row);
+                    $row.fadeOut(function () {
+                        $row.remove();
+                    });
+                }
+            });
+        }
     });
 
     $('#createfoodtypename').keyup(function () {

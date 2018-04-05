@@ -46,3 +46,7 @@ C:\Users\Epico-u-01\source\repos\wasteless\wasteless\obj\Debug\wasteless.csprojR
 C:\Users\Epico-u-01\source\repos\wasteless\wasteless\obj\Debug\wasteless.csproj.CoreCompileInputs.cache
 C:\Users\Epico-u-01\source\repos\wasteless\wasteless\obj\Debug\wasteless.dll
 C:\Users\Epico-u-01\source\repos\wasteless\wasteless\obj\Debug\wasteless.pdb
+C:\Users\Epico-u-01\source\repos\wasteless\wasteless\bin\EntityFramework.dll
+C:\Users\Epico-u-01\source\repos\wasteless\wasteless\bin\EntityFramework.SqlServer.dll
+C:\Users\Epico-u-01\source\repos\wasteless\wasteless\bin\EntityFramework.xml
+C:\Users\Epico-u-01\source\repos\wasteless\wasteless\bin\EntityFramework.SqlServer.xml
