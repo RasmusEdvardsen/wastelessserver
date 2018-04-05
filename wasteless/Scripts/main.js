@@ -41,7 +41,7 @@
                         var row = $('<tr>');
                         row.append($('<td>').html(counter));
                         row.append($('<td>').html(foodtype.FoodTypeID));
-                        row.append($('<td>').html(foodtype.FoodType));
+                        row.append($('<td>').html(foodtype.FoodTypeName));
                         row.append($('<td>').html(foodtype.Code));
                         row.append($('<td>').html(foodtype.Created));
                         row.append($('<td>').html(foodtype.GUID));

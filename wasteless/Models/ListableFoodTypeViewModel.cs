@@ -8,6 +8,6 @@ namespace wasteless.Models
 {
     public class ListableFoodTypeViewModel
     {
-        public List<FoodTypeDTO> ListableFoodTypeDTO { get; set; }
+        public List<FoodType> ListableFoodTypeDTO { get; set; }
     }
 }

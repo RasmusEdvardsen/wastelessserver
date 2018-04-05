@@ -8,17 +8,15 @@ using System.Web;
 using wasteless.Constants;
 using wasteless.DTOs;
 using wasteless.Forms;
-using wasteless.Models;
 
 namespace wasteless.Services
 {
     public class DBService
     {
-
-        //TODO: ENTITY FRAMEWORK
-
+        
         private static readonly string connString = ConfigurationManager.ConnectionStrings["wastelessDB"].ConnectionString;
-
+        
+        //Native SQL calls, just for demonstration. Below this method, EF is used.
         public static bool FormLogin(LoginForm loginForm)
         {
             try
@@ -50,38 +48,14 @@ namespace wasteless.Services
             }
         }
 
-        public static List<FoodTypeDTO> GetListableFoods()
+        public static List<FoodType> GetListableFoods()
         {
-            var foodTypes = new List<FoodTypeDTO>();
+            var foodTypes = new List<FoodType>();
             try
             {
-                string cmdText = "SELECT * FROM FoodTypes";
-                using (var conn = new SqlConnection(connString))
-                using (var cmd = conn.CreateCommand())
+                using (var db = new WastelessContext())
                 {
-                    cmd.CommandText = cmdText;
-                    conn.Open();
-                    using (var reader = cmd.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            try
-                            {
-                                foodTypes.Add(new FoodTypeDTO()
-                                {
-                                    FoodTypeID = !reader.IsDBNull(0) ? reader.GetInt32(0) : -1,
-                                    FoodType = !reader.IsDBNull(1) ? reader.GetString(1) : "",
-                                    Code = !reader.IsDBNull(2) ? reader.GetString(2) : "",
-                                    Created = reader.GetDateTime(3),
-                                    GUID = reader.GetGuid(4)
-                                });
-                            }
-                            catch (Exception e)
-                            {
-                                //A tuple failed, should log somewhere.
-                            }
-                        }
-                    }
+                    foodTypes = db.FoodTypes.ToList();
                     return foodTypes;
                 }
             }
@@ -91,37 +65,19 @@ namespace wasteless.Services
             }
         }
 
-        public static List<FoodTypeDTO> GetSearchResultListableFoods(string query, string options)
+        public static List<FoodType> GetSearchResultListableFoods(string query, string options)
         {
-            var foodTypes = new List<FoodTypeDTO>();
+            var foodTypes = new List<FoodType>();
             try
             {
-                using (var conn = new SqlConnection(connString))
-                using (var cmd = conn.CreateCommand())
+                using (var db = new WastelessContext())
                 {
-                    //TODO: Change this to comply with sqlparams standards.
-                    cmd.CommandText = String.Format(QueryTemplates.getTemplate(options), query);
-                    conn.Open();
-                    using (var reader = cmd.ExecuteReader())
+                    switch (options.ToLower())
                     {
-                        while (reader.Read())
-                        {
-                            try
-                            {
-                                foodTypes.Add(new FoodTypeDTO()
-                                {
-                                    FoodTypeID = !reader.IsDBNull(0) ? reader.GetInt32(0) : -1,
-                                    FoodType = !reader.IsDBNull(1) ? reader.GetString(1) : "",
-                                    Code = !reader.IsDBNull(2) ? reader.GetString(2) : "",
-                                    Created = reader.GetDateTime(3),
-                                    GUID = reader.GetGuid(4)
-                                });
-                            }
-                            catch (Exception e)
-                            {
-                                //A tuple failed, should log somewhere.
-                            }
-                        }
+                        case "starts with": foodTypes = db.FoodTypes.Where(x => x.FoodTypeName.StartsWith(query)).ToList(); break;
+                        case "ends with": foodTypes = db.FoodTypes.Where(x => x.FoodTypeName.EndsWith(query)).ToList(); break;
+                        case "contains":
+                        default: foodTypes = db.FoodTypes.Where(x => x.FoodTypeName.Contains(query)).ToList(); break;
                     }
                     return foodTypes;
                 }
@@ -137,42 +93,32 @@ namespace wasteless.Services
             if (String.IsNullOrWhiteSpace(id)) return;
             try
             {
-                using (var conn = new SqlConnection(connString))
-                using (var cmd = conn.CreateCommand())
+                using (var db = new WastelessContext())
                 {
-                    cmd.CommandText = QueryTemplates.DeleteQuery;
-                    cmd.Parameters.AddWithValue("@id", id.Trim());
-                    conn.Open();
-                    int rowsAffected = cmd.ExecuteNonQuery();
-                    return;
+                    var toRemove = db.FoodTypes.First(x => x.FoodTypeID.ToString() == id);
+                    db.FoodTypes.Remove(toRemove);
+                    db.SaveChanges();
                 }
             }
             catch (Exception e)
             {
-                return;
             }
         }
 
         public static void CreateListableFood(string name, string code)
         {
-            //Do this properly. This is shit.
             if (String.IsNullOrWhiteSpace(code)) code = "";
             try
             {
-                using (var conn = new SqlConnection(connString))
-                using (var cmd = conn.CreateCommand())
+                using (var db = new WastelessContext())
                 {
-                    cmd.CommandText = QueryTemplates.InsertQuery;
-                    cmd.Parameters.AddRange(new List<SqlParameter> { new SqlParameter("@foodtype", SqlDbType.NVarChar) { Value = name },
-                                                                     new SqlParameter("@code", SqlDbType.NVarChar) { Value = code } }.ToArray());
-                    conn.Open();
-                    int rowsAffected = cmd.ExecuteNonQuery();
-                    return;
+                    var toAdd = new FoodType { FoodTypeName = name, Code = code, Created = DateTime.Now, GUID = Guid.NewGuid() };
+                    db.FoodTypes.Add(toAdd);
+                    db.SaveChanges();
                 }
             }
             catch (Exception e)
             {
-                return;
             }
         }
     }

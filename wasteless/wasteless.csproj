@@ -159,9 +159,11 @@
     <Compile Include="Constants\QueryTemplates.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\FoodTypeController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Controllers\WebAPI\FoodtypesController.cs" />
     <Compile Include="DTOs\FoodTypeDTO.cs" />
+    <Compile Include="FoodType.cs">
+      <DependentUpon>WastelessModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Forms\LoginForm.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -169,10 +171,25 @@
     <Compile Include="Models\ListableFoodTypeViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resolvers\ListableFoodTypeResolver.cs" />
-    <Compile Include="Scripts\FoodType.cs" />
-    <Compile Include="Scripts\User.cs" />
-    <Compile Include="Scripts\WastelessContext.cs" />
     <Compile Include="Services\DBService.cs" />
+    <Compile Include="User.cs">
+      <DependentUpon>WastelessModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WastelessModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WastelessModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WastelessModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WastelessModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WastelessModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WastelessModel.edmx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -180,14 +197,21 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.js" />
-    <Content Include="ApplicationInsights.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\main.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
+    <Content Include="WastelessModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WastelessModel.edmx</DependentUpon>
+      <LastGenOutput>WastelessModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="WastelessModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WastelessModel.edmx</DependentUpon>
+      <LastGenOutput>WastelessModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -203,6 +227,13 @@
     <Content Include="Views\Navigation\TopNavigation.cshtml" />
     <Content Include="Views\Home\Home.cshtml" />
     <Content Include="Views\FoodType\FoodType.cshtml" />
+    <EntityDeploy Include="WastelessModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>WastelessModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="WastelessModel.edmx.diagram">
+      <DependentUpon>WastelessModel.edmx</DependentUpon>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -219,6 +250,9 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

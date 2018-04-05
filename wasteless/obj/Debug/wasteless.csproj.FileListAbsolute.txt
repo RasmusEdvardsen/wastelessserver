@@ -1,4 +1,3 @@
-C:\Users\Epico-u-01\source\repos\wasteless\wasteless\bin\ApplicationInsights.config
 C:\Users\Epico-u-01\source\repos\wasteless\wasteless\bin\wasteless.dll.config
 C:\Users\Epico-u-01\source\repos\wasteless\wasteless\bin\wasteless.dll
 C:\Users\Epico-u-01\source\repos\wasteless\wasteless\bin\wasteless.pdb

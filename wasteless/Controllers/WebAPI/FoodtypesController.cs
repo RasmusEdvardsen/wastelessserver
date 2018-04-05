@@ -18,7 +18,7 @@ namespace wasteless.Controllers.WebAPI
         }
 
         // GET: api/Foodtypes/5
-        public List<FoodTypeDTO> Get(string query, string options)
+        public List<FoodType> Get(string query, string options)
         {
             var searchResult = DBService.GetSearchResultListableFoods(query, options);
             return searchResult;
