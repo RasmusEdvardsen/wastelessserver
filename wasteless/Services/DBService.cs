@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -14,7 +15,6 @@ namespace wasteless.Services
     public class DBService
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
-        private static readonly string connString = ConfigurationManager.ConnectionStrings["wastelessDB"].ConnectionString;
         
         //Native SQL calls, just for demonstration. Below this method, EF is used.
         public static bool FormLogin(LoginForm loginForm)
@@ -34,6 +34,23 @@ namespace wasteless.Services
             {
                 log.Error(e.ToString());
                 return false;
+            }
+        }
+
+        public static User ClientLogin(string email, string password)
+        {
+            try
+            {
+                using (var db = new wastelessdbEntities())
+                {
+                    User user = db.Users.FirstOrDefault(x => x.Email == email && x.Password == password);
+                    return user ?? null;
+                }
+            }
+            catch (Exception e)
+            {
+                log.Error(e.ToString());
+                return null;
             }
         }
 
@@ -113,6 +130,6 @@ namespace wasteless.Services
             {
                 log.Error(e.ToString());
             }
-        }
+        }    
     }
 }

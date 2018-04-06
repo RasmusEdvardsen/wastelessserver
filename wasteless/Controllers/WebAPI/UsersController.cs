@@ -1,9 +1,12 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Text;
 using System.Web.Http;
+using wasteless.Services;
 
 namespace wasteless.Controllers.WebAPI
 {
@@ -16,10 +19,21 @@ namespace wasteless.Controllers.WebAPI
         }
 
         // GET: api/Users/5
-        public List<User> Get(string email, string password)
+        public IHttpActionResult Get(string email, string password)
         {
-            using (var db = new wastelessdbEntities())
-                return db.Users.ToList();
+            var user = DBService.ClientLogin(email, password);
+
+            var httpStatusCode = user != null ? HttpStatusCode.OK : HttpStatusCode.NotFound;
+            var content = user != null ? JsonConvert.SerializeObject(user) : "";
+
+            var rspMsg = new HttpResponseMessage()
+            {
+                StatusCode = httpStatusCode,
+                Content = new StringContent(content, Encoding.UTF8, "application/json")
+            };
+            
+            IHttpActionResult response = ResponseMessage(rspMsg);
+            return response;
         }
 
         // POST: api/Users
