@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="wastelessdbModelStoreContainer" CdmEntityContainer="wastelessdbEntities">
+    <EntitySetMapping Name="FoodTypes">
+      <EntityTypeMapping TypeName="wastelessdbModel.FoodType">
+        <MappingFragment StoreEntitySet="FoodTypes">
+          <ScalarProperty Name="FoodTypeID" ColumnName="FoodTypeID" />
+          <ScalarProperty Name="FoodTypeName" ColumnName="FoodTypeName" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="GUID" ColumnName="GUID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="wastelessdbModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ident" ColumnName="ident" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

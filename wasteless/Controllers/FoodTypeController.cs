@@ -12,6 +12,8 @@ namespace wasteless.Controllers
 {
     public class FoodTypeController : Controller
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         [HttpPost]
         public ActionResult Login(LoginForm loginForm)
         {
@@ -24,6 +26,7 @@ namespace wasteless.Controllers
                 }
                 catch (Exception ex)
                 {
+                    log.Error(ex.ToString());
                     return View("~/Views/Shared/Error.cshtml");
                 }
             }

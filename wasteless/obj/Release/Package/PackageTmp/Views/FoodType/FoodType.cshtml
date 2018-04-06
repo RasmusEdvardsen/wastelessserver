@@ -1,0 +1,69 @@
+﻿@model wasteless.Models.ListableFoodTypeViewModel
+<h2>Welcome. Currently showing <span id="foodtypecountrendered">@Model.ListableFoodTypeDTO.Count()</span> different food types.</h2>
+
+<div class="container">
+    <div class="row" style="margin-top:4rem;margin-bottom:2rem;">
+        <div class="col-sm-4" id="actionsbar">
+            <button type="button" class="btn btn-info" id="tofoodtypeform">Create FoodType +</button>
+        </div>
+        
+        <!--Hidden Creation Area-->
+        <div class="col-sm-4" id="createfoodtypeform" style="display:none;">
+            <button type="button" class="btn btn-default" id="returntoactionsbar" style="margin-bottom:1rem;width:12rem;">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"> Return</span>
+            </button>
+            <input type="text" class="form-control" id="createfoodtypename" aria-describedby="Food Type Name" placeholder="Type of food" style="max-width:100%;margin-bottom:1rem;" />
+            <input type="text" class="form-control" id="createfoodtypecode" aria-describedby="Food Type Code" placeholder="Food code" style="max-width:100%;"/>
+            <button type="button" class="btn btn-info" id="createfoodtype" style="margin-top:1rem;float:right;width:12rem;">Create</button>
+        </div>
+
+        <div class="col-sm-8" style="text-align:end">
+            <input type="search" class="form-control" id="querytosearch" aria-describedby="Search Input" placeholder="Search for food type" style="display:inline-block;" />
+            <select class="form-control" id="queryoptions" style="display:inline-block;width:auto;">
+                <option>Contains</option>
+                <option>Starts With</option>
+                <option>Ends With</option>
+            </select>
+            <button type="button" class="btn btn-success" id="searchbutton" style="display:inline-block;">Search</button>
+        </div>
+    </div>
+</div>
+
+<!--table creation-->
+@if (Model.ListableFoodTypeDTO.Any())
+{
+    var namesForColumns = Model.ListableFoodTypeDTO.First();
+    <table class="table table-hover table-bordered table-striped">
+        <thead style="color: #fff;background-color: #212529;border-color: #32383e;">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">@nameof(namesForColumns.FoodTypeID)</th>
+                <th scope="col">@nameof(namesForColumns.FoodTypeName)</th>
+                <th scope="col">@nameof(namesForColumns.Code)</th>
+                <th scope="col">@nameof(namesForColumns.Created)</th>
+                <th scope="col">@nameof(namesForColumns.GUID)</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody id="foodtypetablebody">
+        @{ 
+            var counter = 1;
+            foreach (var foodType in Model.ListableFoodTypeDTO)
+            {
+                <tr>
+                    <th scope="row">@counter</th>
+                    <td class="foodtypeid">@foodType.FoodTypeID</td>
+                    <td>@foodType.FoodTypeName</td>
+                    <td>@foodType.Code</td>
+                    <td>@foodType.Created</td>
+                    <td class="guid">@foodType.GUID</td>
+                    <td align="center">
+                        <button type="button" class="btn btn-danger deletefoodtype">Delete</button>
+                    </td>
+                </tr>
+                counter++;
+            }
+        }
+        </tbody>
+    </table>
+}

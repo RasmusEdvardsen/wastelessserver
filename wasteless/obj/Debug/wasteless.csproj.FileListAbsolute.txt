@@ -49,3 +49,6 @@ C:\Users\Epico-u-01\source\repos\wasteless\wasteless\bin\EntityFramework.dll
 C:\Users\Epico-u-01\source\repos\wasteless\wasteless\bin\EntityFramework.SqlServer.dll
 C:\Users\Epico-u-01\source\repos\wasteless\wasteless\bin\EntityFramework.xml
 C:\Users\Epico-u-01\source\repos\wasteless\wasteless\bin\EntityFramework.SqlServer.xml
+C:\Users\Epico-u-01\source\repos\wasteless\wasteless\obj\Debug\wasteless.csproj.CopyComplete
+C:\Users\Epico-u-01\source\repos\wasteless\wasteless\bin\log4net.dll
+C:\Users\Epico-u-01\source\repos\wasteless\wasteless\bin\log4net.xml
