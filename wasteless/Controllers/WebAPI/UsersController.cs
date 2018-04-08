@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -12,6 +13,8 @@ namespace wasteless.Controllers.WebAPI
 {
     public class UsersController : ApiController
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         // GET: api/Users
         public IEnumerable<string> Get()
         {
@@ -37,8 +40,15 @@ namespace wasteless.Controllers.WebAPI
         }
 
         // POST: api/Users
-        public void Post([FromBody]string value)
+        public IHttpActionResult Post([FromBody]UserPostDTO userPostDTO)
         {
+            var rspMsg = new HttpResponseMessage(HttpStatusCode.NotAcceptable);
+            //this.Validate<UserPostDTO>(userPostDTO);
+            if (ModelState.IsValid)
+                if (DBService.ClientSignup(userPostDTO.email, userPostDTO.password))
+                    rspMsg.StatusCode = HttpStatusCode.OK;
+            IHttpActionResult response = ResponseMessage(rspMsg);
+            return response;
         }
 
         // PUT: api/Users/5
@@ -49,6 +59,13 @@ namespace wasteless.Controllers.WebAPI
         // DELETE: api/Users/5
         public void Delete(int id)
         {
+        }
+
+        public class UserPostDTO
+        {
+            [EmailAddress]
+            public string email { get; set; }
+            public string password { get; set; }
         }
     }
 }

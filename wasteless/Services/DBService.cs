@@ -37,23 +37,9 @@ namespace wasteless.Services
             }
         }
 
-        public static User ClientLogin(string email, string password)
-        {
-            try
-            {
-                using (var db = new wastelessdbEntities())
-                {
-                    User user = db.Users.FirstOrDefault(x => x.Email == email && x.Password == password);
-                    return user ?? null;
-                }
-            }
-            catch (Exception e)
-            {
-                log.Error(e.ToString());
-                return null;
-            }
-        }
 
+
+        #region FoodTypes
         public static List<FoodType> GetListableFoods()
         {
             var foodTypes = new List<FoodType>();
@@ -130,6 +116,55 @@ namespace wasteless.Services
             {
                 log.Error(e.ToString());
             }
-        }    
+        }
+        #endregion FoodTypes
+
+        #region Users
+        public static User ClientLogin(string email, string password)
+        {
+            try
+            {
+                using (var db = new wastelessdbEntities())
+                {
+                    User user = db.Users.FirstOrDefault(x => x.Email == email && x.Password == password);
+                    return user ?? null;
+                }
+            }
+            catch (Exception e)
+            {
+                log.Error(e.ToString());
+                return null;
+            }
+        }
+
+        //TODO: Consider httprspcode returns instead of bool.
+        public static bool ClientSignup(string email, string password)
+        {
+            try
+            {
+                using(var db = new wastelessdbEntities())
+                {
+                    if (db.Users.Any(x => x.Email == email || (x.Email == email && x.Password == password))) return false;
+                    var userToSignUp = new User
+                    {
+                        Email = email,
+                        Password = password,
+                        IsAdmin = false,
+                        CreatedDate = DateTime.Now,
+                        ident = Guid.NewGuid()
+                    };
+                    db.Users.Add(userToSignUp);
+                    var saveChanges = db.SaveChanges();
+                    log.Info("ClientSignup: " + saveChanges.ToString() + " change made to the DB.");
+                    return true;
+                }
+            }
+            catch (Exception e)
+            {
+                log.Error(e.ToString());
+                return false;
+            }
+        }
+        #endregion Users
     }
 }
