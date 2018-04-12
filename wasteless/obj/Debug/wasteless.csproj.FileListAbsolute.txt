@@ -52,3 +52,10 @@ C:\Users\Epico-u-01\source\repos\wasteless\wasteless\bin\EntityFramework.SqlServ
 C:\Users\Epico-u-01\source\repos\wasteless\wasteless\obj\Debug\wasteless.csproj.CopyComplete
 C:\Users\Epico-u-01\source\repos\wasteless\wasteless\bin\log4net.dll
 C:\Users\Epico-u-01\source\repos\wasteless\wasteless\bin\log4net.xml
+C:\Users\Epico-u-01\source\repos\wasteless\wasteless\bin\FSharp.Core.dll
+C:\Users\Epico-u-01\source\repos\wasteless\wasteless\bin\HtmlAgilityPack.dll
+C:\Users\Epico-u-01\source\repos\wasteless\wasteless\bin\ScrapySharp.Core.dll
+C:\Users\Epico-u-01\source\repos\wasteless\wasteless\bin\ScrapySharpAsync.dll
+C:\Users\Epico-u-01\source\repos\wasteless\wasteless\bin\FSharp.Core.xml
+C:\Users\Epico-u-01\source\repos\wasteless\wasteless\bin\HtmlAgilityPack.pdb
+C:\Users\Epico-u-01\source\repos\wasteless\wasteless\bin\HtmlAgilityPack.xml

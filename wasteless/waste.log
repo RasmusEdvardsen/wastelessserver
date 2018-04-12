@@ -1,1 +1,270 @@
 2018-04-08 14:04:52,933 [5] INFO wasteless.Services.DBService - ClientSignup: 1 made to the DB.
+2018-04-11 11:49:30,891 [8] ERROR wasteless.Services.ScrapeService - System.ArgumentException: parsing "(ean" - Not enough )'s.
+   at System.Text.RegularExpressions.RegexParser.ScanRegex()
+   at System.Text.RegularExpressions.RegexParser.Parse(String re, RegexOptions op)
+   at System.Text.RegularExpressions.Regex..ctor(String pattern, RegexOptions options, TimeSpan matchTimeout, Boolean useCache)
+   at System.Text.RegularExpressions.Regex.Matches(String input, String pattern)
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id) in C:\Users\Epico-u-01\source\repos\wasteless\wasteless\Services\ScrapeService.cs:line 62
+2018-04-11 11:49:30,921 [8] ERROR wasteless.Services.ScrapeService - System.ArgumentException: parsing "13)" - Too many )'s.
+   at System.Text.RegularExpressions.RegexParser.ScanRegex()
+   at System.Text.RegularExpressions.RegexParser.Parse(String re, RegexOptions op)
+   at System.Text.RegularExpressions.Regex..ctor(String pattern, RegexOptions options, TimeSpan matchTimeout, Boolean useCache)
+   at System.Text.RegularExpressions.Regex.Matches(String input, String pattern)
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id) in C:\Users\Epico-u-01\source\repos\wasteless\wasteless\Services\ScrapeService.cs:line 62
+2018-04-11 11:50:21,925 [8] ERROR wasteless.Services.ScrapeService - System.ArgumentException: parsing "(ean" - Not enough )'s.
+   at System.Text.RegularExpressions.RegexParser.ScanRegex()
+   at System.Text.RegularExpressions.RegexParser.Parse(String re, RegexOptions op)
+   at System.Text.RegularExpressions.Regex..ctor(String pattern, RegexOptions options, TimeSpan matchTimeout, Boolean useCache)
+   at System.Text.RegularExpressions.Regex.Matches(String input, String pattern)
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id) in C:\Users\Epico-u-01\source\repos\wasteless\wasteless\Services\ScrapeService.cs:line 62
+2018-04-11 11:50:21,956 [8] ERROR wasteless.Services.ScrapeService - System.ArgumentException: parsing "13)" - Too many )'s.
+   at System.Text.RegularExpressions.RegexParser.ScanRegex()
+   at System.Text.RegularExpressions.RegexParser.Parse(String re, RegexOptions op)
+   at System.Text.RegularExpressions.Regex..ctor(String pattern, RegexOptions options, TimeSpan matchTimeout, Boolean useCache)
+   at System.Text.RegularExpressions.Regex.Matches(String input, String pattern)
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id) in C:\Users\Epico-u-01\source\repos\wasteless\wasteless\Services\ScrapeService.cs:line 62
+2018-04-11 11:50:56,232 [8] ERROR wasteless.Services.ScrapeService - System.ArgumentException: parsing "(ean" - Not enough )'s.
+   at System.Text.RegularExpressions.RegexParser.ScanRegex()
+   at System.Text.RegularExpressions.RegexParser.Parse(String re, RegexOptions op)
+   at System.Text.RegularExpressions.Regex..ctor(String pattern, RegexOptions options, TimeSpan matchTimeout, Boolean useCache)
+   at System.Text.RegularExpressions.Regex.Matches(String input, String pattern)
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id) in C:\Users\Epico-u-01\source\repos\wasteless\wasteless\Services\ScrapeService.cs:line 62
+2018-04-11 11:50:56,257 [8] ERROR wasteless.Services.ScrapeService - System.ArgumentException: parsing "13)" - Too many )'s.
+   at System.Text.RegularExpressions.RegexParser.ScanRegex()
+   at System.Text.RegularExpressions.RegexParser.Parse(String re, RegexOptions op)
+   at System.Text.RegularExpressions.Regex..ctor(String pattern, RegexOptions options, TimeSpan matchTimeout, Boolean useCache)
+   at System.Text.RegularExpressions.Regex.Matches(String input, String pattern)
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id) in C:\Users\Epico-u-01\source\repos\wasteless\wasteless\Services\ScrapeService.cs:line 62
+2018-04-11 12:09:39,212 [5] ERROR wasteless.Services.ScrapeService - System.ArgumentException: parsing "(ean" - Not enough )'s.
+   at System.Text.RegularExpressions.RegexParser.ScanRegex()
+   at System.Text.RegularExpressions.RegexParser.Parse(String re, RegexOptions op)
+   at System.Text.RegularExpressions.Regex..ctor(String pattern, RegexOptions options, TimeSpan matchTimeout, Boolean useCache)
+   at System.Text.RegularExpressions.Regex.Matches(String input, String pattern)
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id) in C:\Users\Epico-u-01\source\repos\wasteless\wasteless\Services\ScrapeService.cs:line 65
+2018-04-11 12:09:39,243 [5] ERROR wasteless.Services.ScrapeService - System.ArgumentException: parsing "13)" - Too many )'s.
+   at System.Text.RegularExpressions.RegexParser.ScanRegex()
+   at System.Text.RegularExpressions.RegexParser.Parse(String re, RegexOptions op)
+   at System.Text.RegularExpressions.Regex..ctor(String pattern, RegexOptions options, TimeSpan matchTimeout, Boolean useCache)
+   at System.Text.RegularExpressions.Regex.Matches(String input, String pattern)
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id) in C:\Users\Epico-u-01\source\repos\wasteless\wasteless\Services\ScrapeService.cs:line 65
+2018-04-11 12:10:33,727 [13] ERROR wasteless.Services.ScrapeService - System.ArgumentException: parsing "(ean" - Not enough )'s.
+   at System.Text.RegularExpressions.RegexParser.ScanRegex()
+   at System.Text.RegularExpressions.RegexParser.Parse(String re, RegexOptions op)
+   at System.Text.RegularExpressions.Regex..ctor(String pattern, RegexOptions options, TimeSpan matchTimeout, Boolean useCache)
+   at System.Text.RegularExpressions.Regex.Matches(String input, String pattern)
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-04-11 12:10:33,746 [13] ERROR wasteless.Services.ScrapeService - System.ArgumentException: parsing "13)" - Too many )'s.
+   at System.Text.RegularExpressions.RegexParser.ScanRegex()
+   at System.Text.RegularExpressions.RegexParser.Parse(String re, RegexOptions op)
+   at System.Text.RegularExpressions.Regex..ctor(String pattern, RegexOptions options, TimeSpan matchTimeout, Boolean useCache)
+   at System.Text.RegularExpressions.Regex.Matches(String input, String pattern)
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-04-11 12:10:51,653 [5] ERROR wasteless.Services.ScrapeService - System.ArgumentException: parsing "(ean" - Not enough )'s.
+   at System.Text.RegularExpressions.RegexParser.ScanRegex()
+   at System.Text.RegularExpressions.RegexParser.Parse(String re, RegexOptions op)
+   at System.Text.RegularExpressions.Regex..ctor(String pattern, RegexOptions options, TimeSpan matchTimeout, Boolean useCache)
+   at System.Text.RegularExpressions.Regex.Matches(String input, String pattern)
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-04-11 12:10:51,668 [5] ERROR wasteless.Services.ScrapeService - System.ArgumentException: parsing "13)" - Too many )'s.
+   at System.Text.RegularExpressions.RegexParser.ScanRegex()
+   at System.Text.RegularExpressions.RegexParser.Parse(String re, RegexOptions op)
+   at System.Text.RegularExpressions.Regex..ctor(String pattern, RegexOptions options, TimeSpan matchTimeout, Boolean useCache)
+   at System.Text.RegularExpressions.Regex.Matches(String input, String pattern)
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-04-11 12:11:25,852 [11] ERROR wasteless.Services.ScrapeService - System.ArgumentException: parsing "(ean" - Not enough )'s.
+   at System.Text.RegularExpressions.RegexParser.ScanRegex()
+   at System.Text.RegularExpressions.RegexParser.Parse(String re, RegexOptions op)
+   at System.Text.RegularExpressions.Regex..ctor(String pattern, RegexOptions options, TimeSpan matchTimeout, Boolean useCache)
+   at System.Text.RegularExpressions.Regex.Matches(String input, String pattern)
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-04-11 12:11:25,869 [11] ERROR wasteless.Services.ScrapeService - System.ArgumentException: parsing "13)" - Too many )'s.
+   at System.Text.RegularExpressions.RegexParser.ScanRegex()
+   at System.Text.RegularExpressions.RegexParser.Parse(String re, RegexOptions op)
+   at System.Text.RegularExpressions.Regex..ctor(String pattern, RegexOptions options, TimeSpan matchTimeout, Boolean useCache)
+   at System.Text.RegularExpressions.Regex.Matches(String input, String pattern)
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-04-11 12:17:28,532 [5] ERROR wasteless.Services.ScrapeService - System.ArgumentException: parsing "(ean" - Not enough )'s.
+   at System.Text.RegularExpressions.RegexParser.ScanRegex()
+   at System.Text.RegularExpressions.RegexParser.Parse(String re, RegexOptions op)
+   at System.Text.RegularExpressions.Regex..ctor(String pattern, RegexOptions options, TimeSpan matchTimeout, Boolean useCache)
+   at System.Text.RegularExpressions.Regex.Matches(String input, String pattern)
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-04-11 12:17:28,550 [5] ERROR wasteless.Services.ScrapeService - System.ArgumentException: parsing "13)" - Too many )'s.
+   at System.Text.RegularExpressions.RegexParser.ScanRegex()
+   at System.Text.RegularExpressions.RegexParser.Parse(String re, RegexOptions op)
+   at System.Text.RegularExpressions.Regex..ctor(String pattern, RegexOptions options, TimeSpan matchTimeout, Boolean useCache)
+   at System.Text.RegularExpressions.Regex.Matches(String input, String pattern)
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-04-11 12:17:28,577 [5] ERROR wasteless.Services.ScrapeService - System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.Average(IEnumerable`1 source)
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-04-11 12:18:38,057 [5] ERROR wasteless.Services.ScrapeService - System.ArgumentException: parsing "(ean" - Not enough )'s.
+   at System.Text.RegularExpressions.RegexParser.ScanRegex()
+   at System.Text.RegularExpressions.RegexParser.Parse(String re, RegexOptions op)
+   at System.Text.RegularExpressions.Regex..ctor(String pattern, RegexOptions options, TimeSpan matchTimeout, Boolean useCache)
+   at System.Text.RegularExpressions.Regex.Matches(String input, String pattern)
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id) in C:\Users\Epico-u-01\source\repos\wasteless\wasteless\Services\ScrapeService.cs:line 65
+2018-04-11 12:18:38,091 [5] ERROR wasteless.Services.ScrapeService - System.ArgumentException: parsing "13)" - Too many )'s.
+   at System.Text.RegularExpressions.RegexParser.ScanRegex()
+   at System.Text.RegularExpressions.RegexParser.Parse(String re, RegexOptions op)
+   at System.Text.RegularExpressions.Regex..ctor(String pattern, RegexOptions options, TimeSpan matchTimeout, Boolean useCache)
+   at System.Text.RegularExpressions.Regex.Matches(String input, String pattern)
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id) in C:\Users\Epico-u-01\source\repos\wasteless\wasteless\Services\ScrapeService.cs:line 65
+2018-04-11 12:18:38,135 [5] ERROR wasteless.Services.ScrapeService - System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.Average(IEnumerable`1 source)
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id) in C:\Users\Epico-u-01\source\repos\wasteless\wasteless\Services\ScrapeService.cs:line 92
+2018-04-11 13:16:35,034 [9] ERROR wasteless.Services.ScrapeService - System.ArgumentException: parsing "(ean" - Not enough )'s.
+   at System.Text.RegularExpressions.RegexParser.ScanRegex()
+   at System.Text.RegularExpressions.RegexParser.Parse(String re, RegexOptions op)
+   at System.Text.RegularExpressions.Regex..ctor(String pattern, RegexOptions options, TimeSpan matchTimeout, Boolean useCache)
+   at System.Text.RegularExpressions.Regex.Matches(String input, String pattern)
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id) in C:\Users\Epico-u-01\source\repos\wasteless\wasteless\Services\ScrapeService.cs:line 65
+2018-04-11 13:16:35,061 [9] ERROR wasteless.Services.ScrapeService - System.ArgumentException: parsing "13)" - Too many )'s.
+   at System.Text.RegularExpressions.RegexParser.ScanRegex()
+   at System.Text.RegularExpressions.RegexParser.Parse(String re, RegexOptions op)
+   at System.Text.RegularExpressions.Regex..ctor(String pattern, RegexOptions options, TimeSpan matchTimeout, Boolean useCache)
+   at System.Text.RegularExpressions.Regex.Matches(String input, String pattern)
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id) in C:\Users\Epico-u-01\source\repos\wasteless\wasteless\Services\ScrapeService.cs:line 65
+2018-04-11 13:18:15,024 [9] ERROR wasteless.Services.ScrapeService - System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.Average(IEnumerable`1 source)
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-04-11 13:19:10,566 [5] ERROR wasteless.Services.ScrapeService - System.ArgumentException: parsing "(ean" - Not enough )'s.
+   at System.Text.RegularExpressions.RegexParser.ScanRegex()
+   at System.Text.RegularExpressions.RegexParser.Parse(String re, RegexOptions op)
+   at System.Text.RegularExpressions.Regex..ctor(String pattern, RegexOptions options, TimeSpan matchTimeout, Boolean useCache)
+   at System.Text.RegularExpressions.Regex.Matches(String input, String pattern)
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-04-11 13:19:10,583 [5] ERROR wasteless.Services.ScrapeService - System.ArgumentException: parsing "13)" - Too many )'s.
+   at System.Text.RegularExpressions.RegexParser.ScanRegex()
+   at System.Text.RegularExpressions.RegexParser.Parse(String re, RegexOptions op)
+   at System.Text.RegularExpressions.Regex..ctor(String pattern, RegexOptions options, TimeSpan matchTimeout, Boolean useCache)
+   at System.Text.RegularExpressions.Regex.Matches(String input, String pattern)
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-04-11 13:21:05,437 [5] ERROR wasteless.Services.ScrapeService - System.ArgumentException: parsing "(ean" - Not enough )'s.
+   at System.Text.RegularExpressions.RegexParser.ScanRegex()
+   at System.Text.RegularExpressions.RegexParser.Parse(String re, RegexOptions op)
+   at System.Text.RegularExpressions.Regex..ctor(String pattern, RegexOptions options, TimeSpan matchTimeout, Boolean useCache)
+   at System.Text.RegularExpressions.Regex.Matches(String input, String pattern)
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-04-11 13:21:05,452 [5] ERROR wasteless.Services.ScrapeService - System.ArgumentException: parsing "13)" - Too many )'s.
+   at System.Text.RegularExpressions.RegexParser.ScanRegex()
+   at System.Text.RegularExpressions.RegexParser.Parse(String re, RegexOptions op)
+   at System.Text.RegularExpressions.Regex..ctor(String pattern, RegexOptions options, TimeSpan matchTimeout, Boolean useCache)
+   at System.Text.RegularExpressions.Regex.Matches(String input, String pattern)
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-04-11 13:32:49,055 [5] ERROR wasteless.Services.ScrapeService - System.ArgumentException: parsing "(ean" - Not enough )'s.
+   at System.Text.RegularExpressions.RegexParser.ScanRegex()
+   at System.Text.RegularExpressions.RegexParser.Parse(String re, RegexOptions op)
+   at System.Text.RegularExpressions.Regex..ctor(String pattern, RegexOptions options, TimeSpan matchTimeout, Boolean useCache)
+   at System.Text.RegularExpressions.Regex.Matches(String input, String pattern)
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id) in C:\Users\Epico-u-01\source\repos\wasteless\wasteless\Services\ScrapeService.cs:line 68
+2018-04-11 13:32:49,080 [5] ERROR wasteless.Services.ScrapeService - System.ArgumentException: parsing "13)" - Too many )'s.
+   at System.Text.RegularExpressions.RegexParser.ScanRegex()
+   at System.Text.RegularExpressions.RegexParser.Parse(String re, RegexOptions op)
+   at System.Text.RegularExpressions.Regex..ctor(String pattern, RegexOptions options, TimeSpan matchTimeout, Boolean useCache)
+   at System.Text.RegularExpressions.Regex.Matches(String input, String pattern)
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id) in C:\Users\Epico-u-01\source\repos\wasteless\wasteless\Services\ScrapeService.cs:line 68
+2018-04-11 13:34:46,538 [8] ERROR wasteless.Services.ScrapeService - System.ArgumentException: parsing "(ean" - Not enough )'s.
+   at System.Text.RegularExpressions.RegexParser.ScanRegex()
+   at System.Text.RegularExpressions.RegexParser.Parse(String re, RegexOptions op)
+   at System.Text.RegularExpressions.Regex..ctor(String pattern, RegexOptions options, TimeSpan matchTimeout, Boolean useCache)
+   at System.Text.RegularExpressions.Regex.Matches(String input, String pattern)
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id) in C:\Users\Epico-u-01\source\repos\wasteless\wasteless\Services\ScrapeService.cs:line 68
+2018-04-11 13:34:46,566 [8] ERROR wasteless.Services.ScrapeService - System.ArgumentException: parsing "13)" - Too many )'s.
+   at System.Text.RegularExpressions.RegexParser.ScanRegex()
+   at System.Text.RegularExpressions.RegexParser.Parse(String re, RegexOptions op)
+   at System.Text.RegularExpressions.Regex..ctor(String pattern, RegexOptions options, TimeSpan matchTimeout, Boolean useCache)
+   at System.Text.RegularExpressions.Regex.Matches(String input, String pattern)
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id) in C:\Users\Epico-u-01\source\repos\wasteless\wasteless\Services\ScrapeService.cs:line 68
+2018-04-11 13:36:02,123 [6] ERROR wasteless.Services.ScrapeService - System.ArgumentException: parsing "(ean" - Not enough )'s.
+   at System.Text.RegularExpressions.RegexParser.ScanRegex()
+   at System.Text.RegularExpressions.RegexParser.Parse(String re, RegexOptions op)
+   at System.Text.RegularExpressions.Regex..ctor(String pattern, RegexOptions options, TimeSpan matchTimeout, Boolean useCache)
+   at System.Text.RegularExpressions.Regex.Matches(String input, String pattern)
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id) in C:\Users\Epico-u-01\source\repos\wasteless\wasteless\Services\ScrapeService.cs:line 72
+2018-04-11 13:36:02,148 [6] ERROR wasteless.Services.ScrapeService - System.ArgumentException: parsing "13)" - Too many )'s.
+   at System.Text.RegularExpressions.RegexParser.ScanRegex()
+   at System.Text.RegularExpressions.RegexParser.Parse(String re, RegexOptions op)
+   at System.Text.RegularExpressions.Regex..ctor(String pattern, RegexOptions options, TimeSpan matchTimeout, Boolean useCache)
+   at System.Text.RegularExpressions.Regex.Matches(String input, String pattern)
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id) in C:\Users\Epico-u-01\source\repos\wasteless\wasteless\Services\ScrapeService.cs:line 72
+2018-04-11 13:37:28,214 [8] ERROR wasteless.Services.ScrapeService - System.ArgumentException: parsing "(ean" - Not enough )'s.
+   at System.Text.RegularExpressions.RegexParser.ScanRegex()
+   at System.Text.RegularExpressions.RegexParser.Parse(String re, RegexOptions op)
+   at System.Text.RegularExpressions.Regex..ctor(String pattern, RegexOptions options, TimeSpan matchTimeout, Boolean useCache)
+   at System.Text.RegularExpressions.Regex.Matches(String input, String pattern)
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id) in C:\Users\Epico-u-01\source\repos\wasteless\wasteless\Services\ScrapeService.cs:line 68
+2018-04-11 13:37:28,241 [8] ERROR wasteless.Services.ScrapeService - System.ArgumentException: parsing "13)" - Too many )'s.
+   at System.Text.RegularExpressions.RegexParser.ScanRegex()
+   at System.Text.RegularExpressions.RegexParser.Parse(String re, RegexOptions op)
+   at System.Text.RegularExpressions.Regex..ctor(String pattern, RegexOptions options, TimeSpan matchTimeout, Boolean useCache)
+   at System.Text.RegularExpressions.Regex.Matches(String input, String pattern)
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id) in C:\Users\Epico-u-01\source\repos\wasteless\wasteless\Services\ScrapeService.cs:line 68
+2018-04-12 15:02:39,241 [19] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-04-12 15:02:45,024 [6] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-04-12 15:03:54,723 [6] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-04-12 15:04:05,219 [6] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-04-12 15:16:07,869 [39] ERROR wasteless.Services.ScrapeService - System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+   at System.ThrowHelper.ThrowArgumentOutOfRangeException(ExceptionArgument argument, ExceptionResource resource)
+   at HtmlAgilityPack.HtmlNodeCollection.get_Item(Int32 index) in C:\Users\Jonathan\Desktop\Z\zzzproject\HtmlAgilityPack\HtmlAgilityPack.Shared\HtmlNodeCollection.cs:line 99
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-04-12 19:34:37,974 [5] ERROR wasteless.Services.ScrapeService - System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+   at System.ThrowHelper.ThrowArgumentOutOfRangeException(ExceptionArgument argument, ExceptionResource resource)
+   at HtmlAgilityPack.HtmlNodeCollection.get_Item(Int32 index) in C:\Users\Jonathan\Desktop\Z\zzzproject\HtmlAgilityPack\HtmlAgilityPack.Shared\HtmlNodeCollection.cs:line 99
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id) in C:\Users\Epico-u-01\source\repos\wasteless\wasteless\Services\ScrapeService.cs:line 45
+2018-04-12 19:39:53,731 [6] ERROR wasteless.Services.ScrapeService - System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+   at System.ThrowHelper.ThrowArgumentOutOfRangeException(ExceptionArgument argument, ExceptionResource resource)
+   at HtmlAgilityPack.HtmlNodeCollection.get_Item(Int32 index) in C:\Users\Jonathan\Desktop\Z\zzzproject\HtmlAgilityPack\HtmlAgilityPack.Shared\HtmlNodeCollection.cs:line 99
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id) in C:\Users\Epico-u-01\source\repos\wasteless\wasteless\Services\ScrapeService.cs:line 45
+2018-04-12 19:41:12,136 [5] ERROR wasteless.Services.ScrapeService - System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+   at System.ThrowHelper.ThrowArgumentOutOfRangeException(ExceptionArgument argument, ExceptionResource resource)
+   at HtmlAgilityPack.HtmlNodeCollection.get_Item(Int32 index) in C:\Users\Jonathan\Desktop\Z\zzzproject\HtmlAgilityPack\HtmlAgilityPack.Shared\HtmlNodeCollection.cs:line 99
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-04-12 19:42:16,058 [13] ERROR wasteless.Services.ScrapeService - System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+   at System.ThrowHelper.ThrowArgumentOutOfRangeException(ExceptionArgument argument, ExceptionResource resource)
+   at HtmlAgilityPack.HtmlNodeCollection.get_Item(Int32 index) in C:\Users\Jonathan\Desktop\Z\zzzproject\HtmlAgilityPack\HtmlAgilityPack.Shared\HtmlNodeCollection.cs:line 99
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-04-12 19:42:32,369 [17] ERROR wasteless.Services.ScrapeService - System.Net.WebException: Unable to connect to the remote server ---> System.Net.Sockets.SocketException: A socket operation was attempted to an unreachable host 216.58.212.195:443
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.GetResponse()
+   at HtmlAgilityPack.HtmlWeb.Get(Uri uri, String method, String path, HtmlDocument doc, IWebProxy proxy, ICredentials creds) in C:\Users\Jonathan\Desktop\Z\zzzproject\HtmlAgilityPack\HtmlAgilityPack.Shared\HtmlWeb.cs:line 1677
+   at HtmlAgilityPack.HtmlWeb.LoadUrl(Uri uri, String method, WebProxy proxy, NetworkCredential creds) in C:\Users\Jonathan\Desktop\Z\zzzproject\HtmlAgilityPack\HtmlAgilityPack.Shared\HtmlWeb.cs:line 2086
+   at HtmlAgilityPack.HtmlWeb.Load(Uri uri, String method) in C:\Users\Jonathan\Desktop\Z\zzzproject\HtmlAgilityPack\HtmlAgilityPack.Shared\HtmlWeb.cs:line 1300
+   at HtmlAgilityPack.HtmlWeb.Load(String url) in C:\Users\Jonathan\Desktop\Z\zzzproject\HtmlAgilityPack\HtmlAgilityPack.Shared\HtmlWeb.cs:line 1197
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-04-12 19:43:50,787 [5] ERROR wasteless.Services.ScrapeService - System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+   at System.ThrowHelper.ThrowArgumentOutOfRangeException(ExceptionArgument argument, ExceptionResource resource)
+   at HtmlAgilityPack.HtmlNodeCollection.get_Item(Int32 index) in C:\Users\Jonathan\Desktop\Z\zzzproject\HtmlAgilityPack\HtmlAgilityPack.Shared\HtmlNodeCollection.cs:line 99
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-04-12 19:44:08,404 [5] ERROR wasteless.Services.ScrapeService - System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+   at System.ThrowHelper.ThrowArgumentOutOfRangeException(ExceptionArgument argument, ExceptionResource resource)
+   at HtmlAgilityPack.HtmlNodeCollection.get_Item(Int32 index) in C:\Users\Jonathan\Desktop\Z\zzzproject\HtmlAgilityPack\HtmlAgilityPack.Shared\HtmlNodeCollection.cs:line 99
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-04-12 19:44:18,787 [5] ERROR wasteless.Services.ScrapeService - System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+   at System.ThrowHelper.ThrowArgumentOutOfRangeException(ExceptionArgument argument, ExceptionResource resource)
+   at HtmlAgilityPack.HtmlNodeCollection.get_Item(Int32 index) in C:\Users\Jonathan\Desktop\Z\zzzproject\HtmlAgilityPack\HtmlAgilityPack.Shared\HtmlNodeCollection.cs:line 99
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-04-12 19:45:36,436 [5] ERROR wasteless.Services.ScrapeService - System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+   at System.ThrowHelper.ThrowArgumentOutOfRangeException(ExceptionArgument argument, ExceptionResource resource)
+   at HtmlAgilityPack.HtmlNodeCollection.get_Item(Int32 index) in C:\Users\Jonathan\Desktop\Z\zzzproject\HtmlAgilityPack\HtmlAgilityPack.Shared\HtmlNodeCollection.cs:line 99
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-04-12 19:45:47,027 [5] ERROR wasteless.Services.ScrapeService - System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+   at System.ThrowHelper.ThrowArgumentOutOfRangeException(ExceptionArgument argument, ExceptionResource resource)
+   at HtmlAgilityPack.HtmlNodeCollection.get_Item(Int32 index) in C:\Users\Jonathan\Desktop\Z\zzzproject\HtmlAgilityPack\HtmlAgilityPack.Shared\HtmlNodeCollection.cs:line 99
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)

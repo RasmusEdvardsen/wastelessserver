@@ -155,7 +155,6 @@ namespace wasteless.Services
                     };
                     db.Users.Add(userToSignUp);
                     var saveChanges = db.SaveChanges();
-                    log.Info("ClientSignup: " + saveChanges.ToString() + " change made to the DB.");
                     return true;
                 }
             }
