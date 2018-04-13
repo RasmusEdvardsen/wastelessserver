@@ -10,6 +10,7 @@ namespace wasteless.Services
 {
     public class ScrapeService
     {
+        //TODO: Make log sit in /App_Data or /log, and make it save 30 files of 10mb each at most.
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         public static IEnumerable<WordScore> ScrapeGoogle(string id)
@@ -31,7 +32,7 @@ namespace wasteless.Services
                             divNodeListCleaned.Add(divNode);
                 }
 
-                //Get spantext and anchorlink
+                //Get spantext, citation and anchorlink
                 var spanWordList = new List<String>();
                 var anchorNodeList = new List<HtmlNode>();
                 var citeNodeList = new List<HtmlNode>();
@@ -113,6 +114,7 @@ namespace wasteless.Services
         public class WordScore
         {
             //TODO: Word occurring 5 times in 1 span = bad. Word occurring 1 time in 5 spans = good.
+            //TODO: Regarding score: Give itempropped names higher score - or occurrence.
             public string WordName { get; set; }
             public int WordCount { get; set; }
             public string String() { return WordName + ": " + WordCount.ToString(); }
@@ -134,48 +136,3 @@ namespace wasteless.Services
         }
     }
 }
-
-//foreach (var word in wordListUnclean.Distinct())
-//{
-//    try
-//    {
-//        //Create all words from wordlistunclean.distinct().
-//        //Check all words in spanwordstring for occurrences, or substring of occurrences.
-//        //Add to count for every occurrence.
-
-//        var tempCount = Regex.Matches(spanWordString, word).Count;
-//        wordScoreList.Add(new WordScore { WordName = word, WordCount = tempCount });
-//    }
-//    catch (Exception e)
-//    {
-//        log.Error(e.ToString());
-//    }
-//}
-
-//E.g. "capri-sun", "capri" and "sun" should be one - "capri-sun"
-//var toRemove = new List<WordScore>();
-//if (wordScoresValidated.Any(x => x.WordName.Contains("-")))
-//{
-//    try
-//    {
-//        foreach (var wordScore in wordScoresValidated.Where(x => x.WordName.Contains("-")))
-//        {
-//            var wordSplitted = wordScore.WordName.Split('-');
-//            var toConcatenate = wordScoresValidated.Where(x => wordSplitted.Contains(x.WordName));
-
-//            var toAdd = new List<int>(toConcatenate.Count());
-//            foreach(var word in toConcatenate)  
-//            {
-//                toAdd.Add(word.WordCount);
-//                toRemove.Add(word);
-//            }
-//            if(toAdd.Any())
-//                wordScore.WordCount += (int) toAdd.Average();
-//        }
-//    }
-//    catch (Exception e)
-//    {
-//        log.Error(e.ToString());
-//    }
-//}
-//list = wordScoresValidated.Where(x => !(toRemove.Contains(x))).ToList();

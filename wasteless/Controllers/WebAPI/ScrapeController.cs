@@ -20,6 +20,7 @@ namespace wasteless.Controllers.WebAPI
         {
             //test 5741000131077
             //test 5449000080264
+            //TODO: CHECK EAN TABLE IF EXISTS THEN RETURN THAT
             var list = ScrapeService.ScrapeGoogle(id) ?? new List<ScrapeService.WordScore>();
             return String.Join(", ", list.OrderByDescending(x => x.WordCount).Select(x => x.String()));
 
@@ -31,6 +32,7 @@ namespace wasteless.Controllers.WebAPI
         // POST: api/Scrape
         public void Post([FromBody]string value)
         {
+            //TODO: IF USER CONFIRMS FOODTYPE FOR EAN, CREATE RELATION BETWEEN EAN/FOODTYPE IN A TABLE
         }
 
         // PUT: api/Scrape/5
