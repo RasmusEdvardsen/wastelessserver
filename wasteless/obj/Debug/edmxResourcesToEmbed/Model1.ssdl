@@ -10,6 +10,13 @@
     <Property Name="Created" Type="datetime" />
     <Property Name="GUID" Type="uniqueidentifier" />
   </EntityType>
+  <EntityType Name="Noise">
+    <Key>
+      <PropertyRef Name="NoiseID" />
+    </Key>
+    <Property Name="NoiseID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NoiseWord" Type="nvarchar" MaxLength="255" Nullable="false" />
+  </EntityType>
   <EntityType Name="Users">
     <Key>
       <PropertyRef Name="UserID" />
@@ -25,6 +32,7 @@
   </EntityType>
   <EntityContainer Name="wastelessdbModelStoreContainer">
     <EntitySet Name="FoodTypes" EntityType="Self.FoodTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Noise" EntityType="Self.Noise" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>

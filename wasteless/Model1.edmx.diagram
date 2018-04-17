@@ -7,6 +7,7 @@
       <Diagram DiagramId="7a60c97f3a4a42fe9a2338d662835006" Name="Diagram1">
         <EntityTypeShape EntityType="wastelessdbModel.FoodType" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="wastelessdbModel.User" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="wastelessdbModel.Noise" Width="1.5" PointX="0.75" PointY="4.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

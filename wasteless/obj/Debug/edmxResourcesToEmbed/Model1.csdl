@@ -26,5 +26,13 @@
   <EntityContainer Name="wastelessdbEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="FoodTypes" EntityType="Self.FoodType" />
     <EntitySet Name="Users" EntityType="Self.User" />
+    <EntitySet Name="Noises" EntityType="wastelessdbModel.Noise" />
   </EntityContainer>
+  <EntityType Name="Noise">
+    <Key>
+      <PropertyRef Name="NoiseID" />
+    </Key>
+    <Property Name="NoiseID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NoiseWord" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
 </Schema>

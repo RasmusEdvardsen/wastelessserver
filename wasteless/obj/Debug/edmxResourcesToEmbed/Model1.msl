@@ -26,5 +26,13 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Noises">
+      <EntityTypeMapping TypeName="wastelessdbModel.Noise">
+        <MappingFragment StoreEntitySet="Noise">
+          <ScalarProperty Name="NoiseWord" ColumnName="NoiseWord" />
+          <ScalarProperty Name="NoiseID" ColumnName="NoiseID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="wastelessdbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="wastelessdbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="FoodTypes">
           <Key>
             <PropertyRef Name="FoodTypeID" />
@@ -14,6 +14,13 @@
           <Property Name="Code" Type="nvarchar" MaxLength="255" />
           <Property Name="Created" Type="datetime" />
           <Property Name="GUID" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="Noise">
+          <Key>
+            <PropertyRef Name="NoiseID" />
+          </Key>
+          <Property Name="NoiseID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NoiseWord" Type="nvarchar" MaxLength="255" Nullable="false" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -30,10 +37,10 @@
         </EntityType>
         <EntityContainer Name="wastelessdbModelStoreContainer">
           <EntitySet Name="FoodTypes" EntityType="Self.FoodTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Noise" EntityType="Self.Noise" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="wastelessdbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -63,7 +70,15 @@
         <EntityContainer Name="wastelessdbEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="FoodTypes" EntityType="Self.FoodType" />
           <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="Noises" EntityType="wastelessdbModel.Noise" />
         </EntityContainer>
+        <EntityType Name="Noise">
+          <Key>
+            <PropertyRef Name="NoiseID" />
+          </Key>
+          <Property Name="NoiseID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NoiseWord" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -92,6 +107,14 @@
                 <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
                 <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
                 <ScalarProperty Name="ident" ColumnName="ident" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Noises">
+            <EntityTypeMapping TypeName="wastelessdbModel.Noise">
+              <MappingFragment StoreEntitySet="Noise">
+                <ScalarProperty Name="NoiseWord" ColumnName="NoiseWord" />
+                <ScalarProperty Name="NoiseID" ColumnName="NoiseID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -24,7 +24,7 @@ namespace wasteless.Controllers.WebAPI
         // GET: api/Users/5
         public IHttpActionResult Get(string email, string password)
         {
-            var user = DBService.ClientLogin(email, password);
+            var user = DBService.GetUser(email, password);
 
             var httpStatusCode = user != null ? HttpStatusCode.OK : HttpStatusCode.NotFound;
             var content = user != null ? JsonConvert.SerializeObject(user) : "";

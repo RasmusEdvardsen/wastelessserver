@@ -102,6 +102,8 @@ namespace wasteless.Services
                     }
                 }
 
+                //TODO: WORDS WITH N OCCURRENCES - IF FOUND IN OTHER WORDS ("mælk" in "skummetmælk") ADD TO SCORE.
+
                 list = wordScoreList.ToList();
                 return list;
             }

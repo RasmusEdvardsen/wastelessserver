@@ -27,5 +27,6 @@ namespace wasteless
     
         public virtual DbSet<FoodType> FoodTypes { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Noise> Noises { get; set; }
     }
 }

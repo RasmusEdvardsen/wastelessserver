@@ -13,28 +13,12 @@ namespace wasteless.Controllers
     public class FoodTypeController : Controller
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
-
-        [HttpPost]
-        public ActionResult Login(LoginForm loginForm)
+        
+        public ActionResult FoodType()
         {
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    if (DBService.FormLogin(loginForm))
-                        return View("~/Views/FoodType/FoodType.cshtml", ListableFoodTypeResolver.GetListableFoodTypeResolver());
-                }
-                catch (Exception ex)
-                {
-                    log.Error(ex.ToString());
-                    return View("~/Views/Shared/Error.cshtml");
-                }
-            }
-            else
-            {
-                return View("~/Views/Shared/Error.cshtml");
-            }
-            return View("~/Views/Shared/Error.cshtml");
+            if(AuthService.IsLoggedIn(HttpContext.Request.Cookies))
+                return View("~/Views/FoodType/FoodType.cshtml", ListableFoodTypeResolver.GetFoodTypeListResolver());
+            return RedirectToAction("Home", "Home");
         }
     }
 }

@@ -6,8 +6,8 @@ using wasteless.DTOs;
 
 namespace wasteless.Models
 {
-    public class ListableFoodTypeViewModel
+    public class FoodTypeListViewModel
     {
-        public List<FoodType> ListableFoodTypeDTO { get; set; }
+        public List<FoodType> FoodTypeListDTO { get; set; }
     }
 }

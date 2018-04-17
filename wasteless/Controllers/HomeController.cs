@@ -5,6 +5,8 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using wasteless.Forms;
+using wasteless.Services;
 
 namespace wasteless.Controllers
 {
@@ -14,9 +16,43 @@ namespace wasteless.Controllers
 
         public ActionResult Home()
         {
-            //TODO: Put Login here, and return partial that contains button to redirect to foodtypemvc. makes more sense.
-            //TODO: When successful login, give squares with options in them [Food Types] [Logout], etc...
+            //TODO: STYLE MENU CORRECTLY (boxes, padding, etc.), GIVE THEM ACTIONLINKS!
+
+            ViewBag.IsLoggedIn = false;
+            if (AuthService.IsLoggedIn(HttpContext.Request.Cookies))
+            {
+                ViewBag.IsLoggedIn = true;
+                return View();
+            }
             return View();
+        }
+
+        [HttpPost]
+        public PartialViewResult Login(LoginForm loginForm)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    if (DBService.FormLogin(loginForm))
+                    {
+                        User userToLogin = DBService.GetUser(loginForm.Email);
+                        var cookie = new HttpCookie("wstlssusr", userToLogin.ident.ToString()) { Expires = DateTime.Now.AddMinutes(10) };
+                        HttpContext.Response.Cookies.Add(cookie);
+                        return PartialView("~/Views/Home/_Menu.cshtml", true);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    log.Error(ex.ToString());
+                    return PartialView("~/Views/Shared/Error.cshtml");
+                }
+            }
+            else
+            {
+                return PartialView("~/Views/Shared/Error.cshtml");
+            }
+            return PartialView("~/Views/Shared/Error.cshtml");
         }
     }
 }

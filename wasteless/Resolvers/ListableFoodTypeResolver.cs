@@ -9,11 +9,11 @@ namespace wasteless.Resolvers
 {
     public class ListableFoodTypeResolver
     {
-        public static ListableFoodTypeViewModel GetListableFoodTypeResolver()
+        public static FoodTypeListViewModel GetFoodTypeListResolver()
         {
-            var model = new ListableFoodTypeViewModel()
+            var model = new FoodTypeListViewModel()
             {
-                ListableFoodTypeDTO = DBService.GetListableFoods()
+                FoodTypeListDTO = DBService.GetListableFoods()
             };
             return model;
         }
