@@ -12,8 +12,7 @@ namespace wasteless.Services
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         
         #region FoodTypes
-        //TODO: DROP 'LISTABLE' FROM NAMES, GIVES NO EXTRA CONTEXT
-        public static List<FoodType> GetListableFoods()
+        public static List<FoodType> GetFoodTypes()
         {
             var foodTypes = new List<FoodType>();
             try
@@ -31,7 +30,7 @@ namespace wasteless.Services
             }
         }
 
-        public static List<FoodType> GetSearchResultListableFoods(string query, string options)
+        public static List<FoodType> GetFoodTypesSearchResult(string query, string options)
         {
             var foodTypes = new List<FoodType>();
             try
@@ -55,7 +54,7 @@ namespace wasteless.Services
             }
         }
 
-        public static void DeleteListableFood(string id)
+        public static void DeleteFoodType(string id)
         {
             if (String.IsNullOrWhiteSpace(id)) return;
             try
@@ -73,7 +72,7 @@ namespace wasteless.Services
             }
         }
 
-        public static void CreateListableFood(string name, string code)
+        public static void CreateFoodType(string name, string code)
         {
             if (String.IsNullOrWhiteSpace(code)) code = "";
             try
@@ -199,7 +198,7 @@ namespace wasteless.Services
             }
         }
 
-        public static List<Noise> GetSearchResultNoises(string query, string options)
+        public static List<Noise> GetNoisesSearchResult(string query, string options)
         {
             var noises = new List<Noise>();
             try

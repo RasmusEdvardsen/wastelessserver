@@ -13,7 +13,7 @@ namespace wasteless.Resolvers
         {
             var model = new FoodTypeListViewModel()
             {
-                FoodTypeListDTO = DBService.GetListableFoods()
+                FoodTypeListDTO = DBService.GetFoodTypes()
             };
             return model;
         }

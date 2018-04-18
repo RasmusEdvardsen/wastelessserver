@@ -12,8 +12,6 @@ namespace wasteless.Controllers
 {
     public class FoodTypeController : Controller
     {
-        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
-        
         public ActionResult FoodType()
         {
             if(AuthService.IsLoggedIn(HttpContext.Request.Cookies))

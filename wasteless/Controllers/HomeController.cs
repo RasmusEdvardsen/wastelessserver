@@ -13,16 +13,22 @@ namespace wasteless.Controllers
 
         public ActionResult Home()
         {
+            //TODO: CONSIDER AUTH ISLOGGEDIN ELSEWHERE (LIKE GLOBAL.ASAX)
             //TODO: IMPLEMENT LOGOUT FUNCTIONALITY
             //TODO: GIVE BOXES ACTIONLINKS!
             //TODO: IF PATH NOT CONTAINS "HOME", PUT MENUS IN NAVBAR
-            ViewBag.IsLoggedIn = false;
-            if (AuthService.IsLoggedIn(HttpContext.Request.Cookies))
+            try
             {
-                ViewBag.IsLoggedIn = true;
+                ViewBag.IsLoggedIn = false;
+                if (AuthService.IsLoggedIn(HttpContext.Request.Cookies))
+                    ViewBag.IsLoggedIn = true;
                 return View();
             }
-            return View();
+            catch (Exception e)
+            {
+                log.Error(e.ToString());
+                return PartialView("~/Views/Shared/Error.cshtml");
+            }
         }
 
         [HttpPost]

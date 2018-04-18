@@ -16,14 +16,14 @@ namespace wasteless.Controllers.WebAPI
         // GET: api/Foodtypes/5
         public List<FoodType> Get(string query, string options)
         {
-            var searchResult = DBService.GetSearchResultListableFoods(query, options);
+            var searchResult = DBService.GetFoodTypesSearchResult(query, options);
             return searchResult;
         }
 
         // POST: api/Foodtypes
         public void Post([FromBody]FoodTypePostDTO foodTypePostDTO)
         {
-            DBService.CreateListableFood(foodTypePostDTO.createfoodtypename, foodTypePostDTO.createfoodtypecode);
+            DBService.CreateFoodType(foodTypePostDTO.createfoodtypename, foodTypePostDTO.createfoodtypecode);
         }
 
         // PUT: api/Foodtypes/5
@@ -34,7 +34,7 @@ namespace wasteless.Controllers.WebAPI
         // DELETE: api/Foodtypes/5
         public void Delete(int id)
         {
-            DBService.DeleteListableFood(id.ToString());
+            DBService.DeleteFoodType(id.ToString());
         }
 
         public class FoodTypePostDTO
