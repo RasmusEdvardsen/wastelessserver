@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using wasteless.DTOs;
+﻿using System.Collections.Generic;
+using wasteless.EntityModel;
 
 namespace wasteless.Models
 {

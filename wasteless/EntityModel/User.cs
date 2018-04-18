@@ -7,17 +7,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace wasteless
+namespace wasteless.EntityModel
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class FoodType
+    public partial class User
     {
-        public int FoodTypeID { get; set; }
-        public string FoodTypeName { get; set; }
-        public string Code { get; set; }
-        public Nullable<System.DateTime> Created { get; set; }
-        public Nullable<System.Guid> GUID { get; set; }
+        public int UserID { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
+        public Nullable<bool> IsAdmin { get; set; }
+        public Nullable<System.DateTime> CreatedDate { get; set; }
+        public Nullable<System.Guid> ident { get; set; }
     }
 }

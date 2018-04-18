@@ -12,6 +12,14 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Noises">
+      <EntityTypeMapping TypeName="wastelessdbModel.Noise">
+        <MappingFragment StoreEntitySet="Noise">
+          <ScalarProperty Name="NoiseID" ColumnName="NoiseID" />
+          <ScalarProperty Name="NoiseWord" ColumnName="NoiseWord" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Users">
       <EntityTypeMapping TypeName="wastelessdbModel.User">
         <MappingFragment StoreEntitySet="Users">
@@ -23,26 +31,6 @@
           <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
           <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
           <ScalarProperty Name="ident" ColumnName="ident" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Noises">
-      <EntityTypeMapping TypeName="wastelessdbModel.Noise">
-        <MappingFragment StoreEntitySet="Noise">
-          <ScalarProperty Name="NoiseWord" ColumnName="NoiseWord" />
-          <ScalarProperty Name="NoiseID" ColumnName="NoiseID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="database_firewall_rules">
-      <EntityTypeMapping TypeName="wastelessdbModel.database_firewall_rules">
-        <MappingFragment StoreEntitySet="database_firewall_rules">
-          <ScalarProperty Name="modify_date" ColumnName="modify_date" />
-          <ScalarProperty Name="create_date" ColumnName="create_date" />
-          <ScalarProperty Name="end_ip_address" ColumnName="end_ip_address" />
-          <ScalarProperty Name="start_ip_address" ColumnName="start_ip_address" />
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

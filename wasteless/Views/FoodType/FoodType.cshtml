@@ -1,5 +1,5 @@
-﻿@model wasteless.Models.ListableFoodTypeViewModel
-<h2>Welcome. Currently showing <span id="foodtypecountrendered">@Model.ListableFoodTypeDTO.Count()</span> different food types.</h2>
+﻿@model wasteless.Models.FoodTypeListViewModel
+<h2>Welcome. Currently showing <span id="foodtypecountrendered">@Model.FoodTypeListDTO.Count()</span> different food types.</h2>
 
 <div class="container">
     <div class="row" style="margin-top:4rem;margin-bottom:2rem;">
@@ -30,9 +30,9 @@
 </div>
 
 <!--table creation-->
-@if (Model.ListableFoodTypeDTO.Any())
+@if (Model.FoodTypeListDTO.Any())
 {
-    var namesForColumns = Model.ListableFoodTypeDTO.First();
+    var namesForColumns = Model.FoodTypeListDTO.First();
     <table class="table table-hover table-bordered table-striped">
         <thead style="color: #fff;background-color: #212529;border-color: #32383e;">
             <tr>
@@ -48,7 +48,7 @@
         <tbody id="foodtypetablebody">
         @{ 
             var counter = 1;
-            foreach (var foodType in Model.ListableFoodTypeDTO)
+            foreach (var foodType in Model.FoodTypeListDTO)
             {
                 <tr>
                     <th scope="row">@counter</th>

@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace wasteless
+namespace wasteless.EntityModel
 {
     using System;
     using System.Data.Entity;
@@ -26,7 +26,7 @@ namespace wasteless
         }
     
         public virtual DbSet<FoodType> FoodTypes { get; set; }
-        public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Noise> Noises { get; set; }
+        public virtual DbSet<User> Users { get; set; }
     }
 }

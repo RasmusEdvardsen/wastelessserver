@@ -7,7 +7,7 @@ using wasteless.Services;
 
 namespace wasteless.Resolvers
 {
-    public class ListableFoodTypeResolver
+    public class FoodTypeListResolver
     {
         public static FoodTypeListViewModel GetFoodTypeListResolver()
         {

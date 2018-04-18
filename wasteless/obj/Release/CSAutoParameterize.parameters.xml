@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
-  <parameter name="wastelessdbEntities-Web.config Connection String" description="wastelessdbEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/Model1.csdl|res://*/Model1.ssdl|res://*/Model1.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=tcp:wasteless.database.windows.net,1433;initial catalog=wastelessdb;user id=adminadmin;password=Wasteless1;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+  <parameter name="wastelessdbEntities-Web.config Connection String" description="wastelessdbEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/EntityModel.WastelessModel.csdl|res://*/EntityModel.WastelessModel.ssdl|res://*/EntityModel.WastelessModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=tcp:wasteless.database.windows.net,1433;initial catalog=wastelessdb;user id=adminadmin;password=Wasteless1;multipleactiveresultsets=True;application name=EntityFramework&quot;" tags="SqlConnectionString">
     <parameterEntry kind="XmlFile" scope="C:\\Users\\Epico-u-01\\source\\repos\\wasteless\\wasteless\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='wastelessdbEntities']/@connectionString" />
   </parameter>
 </parameters>

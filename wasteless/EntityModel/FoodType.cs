@@ -7,14 +7,17 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace wasteless
+namespace wasteless.EntityModel
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Noise
+    public partial class FoodType
     {
-        public int NoiseID { get; set; }
-        public string NoiseWord { get; set; }
+        public int FoodTypeID { get; set; }
+        public string FoodTypeName { get; set; }
+        public string Code { get; set; }
+        public Nullable<System.DateTime> Created { get; set; }
+        public Nullable<System.Guid> GUID { get; set; }
     }
 }

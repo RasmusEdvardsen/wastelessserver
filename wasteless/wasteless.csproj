@@ -179,65 +179,67 @@
     <Compile Include="Controllers\WebAPI\ScrapeController.cs" />
     <Compile Include="Controllers\WebAPI\UsersController.cs" />
     <Compile Include="DTOs\FoodTypeDTO.cs" />
-    <Compile Include="FoodType.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+    <Compile Include="EntityModel\FoodType.cs">
+      <DependentUpon>WastelessModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\Noise.cs">
+      <DependentUpon>WastelessModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\User.cs">
+      <DependentUpon>WastelessModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\WastelessModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WastelessModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\WastelessModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WastelessModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\WastelessModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WastelessModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Forms\LoginForm.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Model1.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ListableFoodTypeViewModel.cs" />
-    <Compile Include="Noise.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+    <Compile Include="Models\FoodTypeListViewModel.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resolvers\ListableFoodTypeResolver.cs" />
     <Compile Include="Services\AuthService.cs" />
     <Compile Include="Services\DBService.cs" />
     <Compile Include="Services\ScrapeService.cs" />
-    <Compile Include="User.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
+    <Content Include="EntityModel\WastelessModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WastelessModel.edmx</DependentUpon>
+      <LastGenOutput>WastelessModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="EntityModel\WastelessModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WastelessModel.edmx</DependentUpon>
+      <LastGenOutput>WastelessModel.cs</LastGenOutput>
+    </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Model1.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Model1.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.cs</LastGenOutput>
-    </Content>
     <Content Include="Scripts\bootstrap.js" />
-    <EntityDeploy Include="Model1.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Content>
     <Content Include="log4net.config" />
+    <EntityDeploy Include="EntityModel\WastelessModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>WastelessModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="EntityModel\WastelessModel.edmx.diagram">
+      <DependentUpon>WastelessModel.edmx</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\wasteless20180406103633 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

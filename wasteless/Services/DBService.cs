@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using wasteless.EntityModel;
 using wasteless.Forms;
 
 namespace wasteless.Services
@@ -99,10 +100,11 @@ namespace wasteless.Services
             {
                 using (var db = new wastelessdbEntities())
                 {
-                    var userToLogin = db.Users.First(x => x.Email == loginForm.Email && x.Password == loginForm.Password);
-                    if (userToLogin.IsAdmin.HasValue)
-                        if (userToLogin.IsAdmin.Value)
-                            return true;
+                    var userToLogin = db.Users.FirstOrDefault(x => x.Email == loginForm.Email && x.Password == loginForm.Password);
+                    if(userToLogin != null)
+                        if (userToLogin.IsAdmin.HasValue)
+                            if (userToLogin.IsAdmin.Value)
+                                return true;
                     return false;
                 }
             }

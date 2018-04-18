@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data.SqlClient;
-using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using wasteless.EntityModel;
 using wasteless.Forms;
 using wasteless.Services;
 
@@ -16,8 +13,9 @@ namespace wasteless.Controllers
 
         public ActionResult Home()
         {
-            //TODO: STYLE MENU CORRECTLY (boxes, padding, etc.), GIVE THEM ACTIONLINKS!
-
+            //TODO: IMPLEMENT LOGOUT FUNCTIONALITY
+            //TODO: GIVE BOXES ACTIONLINKS!
+            //TODO: IF PATH NOT CONTAINS "HOME", PUT MENUS IN NAVBAR
             ViewBag.IsLoggedIn = false;
             if (AuthService.IsLoggedIn(HttpContext.Request.Cookies))
             {

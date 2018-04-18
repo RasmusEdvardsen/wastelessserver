@@ -10,6 +10,13 @@
     <Property Name="Created" Type="DateTime" Precision="3" />
     <Property Name="GUID" Type="Guid" />
   </EntityType>
+  <EntityType Name="Noise">
+    <Key>
+      <PropertyRef Name="NoiseID" />
+    </Key>
+    <Property Name="NoiseID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NoiseWord" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
   <EntityType Name="User">
     <Key>
       <PropertyRef Name="UserID" />
@@ -25,31 +32,7 @@
   </EntityType>
   <EntityContainer Name="wastelessdbEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="FoodTypes" EntityType="Self.FoodType" />
+    <EntitySet Name="Noises" EntityType="Self.Noise" />
     <EntitySet Name="Users" EntityType="Self.User" />
-    <EntitySet Name="Noises" EntityType="wastelessdbModel.Noise" />
-    <EntitySet Name="database_firewall_rules" EntityType="wastelessdbModel.database_firewall_rules" />
   </EntityContainer>
-  <EntityType Name="Noise">
-    <Key>
-      <PropertyRef Name="NoiseID" />
-    </Key>
-    <Property Name="NoiseID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="NoiseWord" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-  </EntityType>
-  <EntityType Name="database_firewall_rules">
-    <Key>
-      <PropertyRef Name="id" />
-      <PropertyRef Name="name" />
-      <PropertyRef Name="start_ip_address" />
-      <PropertyRef Name="end_ip_address" />
-      <PropertyRef Name="create_date" />
-      <PropertyRef Name="modify_date" />
-    </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-    <Property Name="start_ip_address" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
-    <Property Name="end_ip_address" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
-    <Property Name="create_date" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="modify_date" Type="DateTime" Nullable="false" Precision="3" />
-  </EntityType>
 </Schema>

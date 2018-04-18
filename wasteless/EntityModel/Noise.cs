@@ -7,20 +7,14 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace wasteless
+namespace wasteless.EntityModel
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class User
+    public partial class Noise
     {
-        public int UserID { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Email { get; set; }
-        public string Password { get; set; }
-        public Nullable<bool> IsAdmin { get; set; }
-        public Nullable<System.DateTime> CreatedDate { get; set; }
-        public Nullable<System.Guid> ident { get; set; }
+        public int NoiseID { get; set; }
+        public string NoiseWord { get; set; }
     }
 }

@@ -17,7 +17,7 @@ namespace wasteless.Controllers
         public ActionResult FoodType()
         {
             if(AuthService.IsLoggedIn(HttpContext.Request.Cookies))
-                return View("~/Views/FoodType/FoodType.cshtml", ListableFoodTypeResolver.GetFoodTypeListResolver());
+                return View("~/Views/FoodType/FoodType.cshtml", FoodTypeListResolver.GetFoodTypeListResolver());
             return RedirectToAction("Home", "Home");
         }
     }
