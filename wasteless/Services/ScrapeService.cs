@@ -13,8 +13,18 @@ namespace wasteless.Services
         //TODO: Make log sit in /App_Data or /log, and make it save 30 files of 10mb each at most.
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
+        //TODO: Some products are in 2 words (e.g. Faxe Kondi)
+
+        /// <summary>
+        /// Scrapes google by searching with the given id, finding N occurences of words in search results. 
+        /// End result is to find the product of the ean code (e.g. milk).
+        /// </summary>
+        /// <param name="id">EAN code</param>
+        /// <returns>Words found scraping google, scored by occurrences.</returns>
         public static IEnumerable<WordScore> ScrapeGoogle(string id)
         {
+            //TODO: Delete this message later, for load reasons.
+            log.Info("Started ScrapeGoogle() with id" + id + ".");
             var list = new List<WordScore>();
             try
             {
@@ -102,7 +112,7 @@ namespace wasteless.Services
                     }
                 }
 
-                //TODO: WORDS WITH N OCCURRENCES - IF FOUND IN OTHER WORDS ("mælk" in "skummetmælk") ADD TO SCORE.
+                //TODO: WORDS WITH N OCCURRENCES - IF FOUND IN OTHER WORDS ("mælk" in "skummetmælk") ADD TO SCORE. INCLUDING NOISE WORDS.
 
                 list = wordScoreList.ToList();
                 return list;
@@ -123,17 +133,18 @@ namespace wasteless.Services
         }
         public class ToRemove
         {
-            //TODO: As db table.
+            //TODO: PUT INTO THE TABLE JUST MADE
             public static readonly List<string> list = new List<string>() { "/", "og", "i", "and", "cl", "til", "export", "ean", "solvej", "nielsen"
                                                                             , "er", "de", "har", "en", "mejeri", "øko", "at", "der", "som", "upc", "vær"
                                                                             , "på", "den", "in", "or", "code", "packaging", "summer", "ch", "product", "www" };
         }
         public static bool IsValid(string str)
         {
+            var list = DBService.GetNoises().Select(x=>x.NoiseWord).ToList();
             Regex Validator = new Regex(@"^[abcdefghijklmnopqrstuvwxyzæøå-]+$");
             if (Validator.IsMatch(str))
                 if (str.Length > 1)
-                    return !ToRemove.list.Contains(str);
+                    return !list.Contains(str);
             return false;
         }
     }

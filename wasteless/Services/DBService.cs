@@ -180,6 +180,8 @@ namespace wasteless.Services
         #endregion Users
 
         #region Noise
+        //TODO: MAKE NOISEWORD IN TABLE UNIQUE IN THE DATABASE! SECURITY!
+
         public static List<Noise> GetNoises()
         {
             var noises = new List<Noise>();
@@ -247,9 +249,12 @@ namespace wasteless.Services
             {
                 using (var db = new wastelessdbEntities())
                 {
-                    var toAdd = new Noise { NoiseWord = name };
-                    db.Noises.Add(toAdd);
-                    db.SaveChanges();
+                    if (db.Noises.Any(x => x.NoiseWord.Equals(name)))
+                    {
+                        var toAdd = new Noise { NoiseWord = name };
+                        db.Noises.Add(toAdd);
+                        db.SaveChanges();
+                    }
                 }
             }
             catch (Exception e)

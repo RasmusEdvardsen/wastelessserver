@@ -7,7 +7,7 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<body>
+<body class="@ViewContext.RouteData.Values["action"]">
     @{ Html.RenderPartial("~/Views/Navigation/TopNavigation.cshtml"); }
     <div class="container body-content">
         @RenderBody()
