@@ -6,4 +6,8 @@ $(function () {
     } else if ($('body').hasClass('Noise')) {
         initNoise();
     }
+    $('#resetnoisewordscache').click(function () {
+        var result = confirm('Reset Cache? This will impact the stability and loadtime of the server.')
+        console.log('TODO')
+    });
 });

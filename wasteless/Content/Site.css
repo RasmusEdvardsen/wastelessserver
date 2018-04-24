@@ -30,3 +30,6 @@ textarea {
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
+hr {
+    border-top: 2px solid rgba(0, 0, 0, 0.125);
+}

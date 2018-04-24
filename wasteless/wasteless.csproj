@@ -235,6 +235,8 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Images\error.png" />
+    <Content Include="Images\restaurant.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="log4net.config" />
     <EntityDeploy Include="EntityModel\WastelessModel.edmx">

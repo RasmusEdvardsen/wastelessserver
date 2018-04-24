@@ -1,4 +1,33 @@
-﻿<nav class="navbar navbar-dark bg-dark">
-    <h1 class="text-info">Wasteless</h1>
-    @*@Html.ActionLink("Wasteless", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
+﻿<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Wasteless</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="/FoodType/FoodType">Food Types</a>
+            <a class="nav-item nav-link" href="/Noise/Noise">Noise Words</a>
+        </div>
+    </div>
 </nav>
+
+
+
+
+
+
+
+
+
+
+
+<!--<nav class="navbar navbar-dark bg-dark">
+    //Html.ActionLink("Wasteless", "Home", "Home", new { class = "navbar-brand" })
+
+        <a class="nav-link" href="#"> <span class="sr-only">(current)</span></a>
+        //Html.ActionLink("Food Types", "FoodType", "FoodType", new { class = "nav-link" })
+        <a class="nav-link" href="#">Pricing</a>
+    @*@Html.ActionLink("Wasteless", "Home", "Home", new { @class = "btn btn-sm btn-outline-secondary" })
+    @Html.ActionLink("Wasteless", "Home", "Home", new { @class = "btn btn-sm btn-outline-secondary" })*@
+</nav>-->
