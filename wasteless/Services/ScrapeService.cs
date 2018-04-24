@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web;
+using System.Web.Caching;
 
 namespace wasteless.Services
 {
@@ -12,7 +13,8 @@ namespace wasteless.Services
     {
         //TODO: Make log sit in /App_Data or /log, and make it save 30 files of 10mb each at most.
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
-
+        private static readonly char[] delimiters = { ' ', ',', '.', ':', ';', '\n' };
+        
         //TODO: Some products are in 2 words (e.g. Faxe Kondi)
 
         /// <summary>
@@ -24,7 +26,7 @@ namespace wasteless.Services
         public static IEnumerable<WordScore> ScrapeGoogle(string id)
         {
             //TODO: Delete this message later, for load reasons.
-            log.Info("Started ScrapeGoogle() with id" + id + ".");
+            log.Info("Started ScrapeGoogle() with id " + id + ".");
             var list = new List<WordScore>();
             try
             {
@@ -56,9 +58,9 @@ namespace wasteless.Services
                         var tempCiteNode = divNode.ChildNodes.FirstOrDefault(x => x.Name.Equals("div")).ChildNodes.FirstOrDefault(x => x.Name.Equals("div"));
                         if (tempSpanNode != null && tempAnchorNode != null)
                         {
-                            if(tempCiteNode != null)
-                                if ((((tempAnchorNode.InnerHtml.Contains(id)) ? 1 : 0) + ((tempCiteNode.InnerHtml.Contains(id)) ? 1 : 0) + ((tempSpanNode.InnerHtml.Contains(id)) ? 1 : 0)) < 2)
-                                    continue;
+                            //if(tempCiteNode != null)
+                            //    if ((((tempAnchorNode.InnerHtml.Contains(id)) ? 1 : 0) + ((tempCiteNode.InnerHtml.Contains(id)) ? 1 : 0) + ((tempSpanNode.InnerHtml.Contains(id)) ? 1 : 0)) < 2)
+                            //        continue;
                             if (tempSpanNode.InnerText.Contains(id))
                             {
                                 spanWordList.Add(tempSpanNode.InnerText);
@@ -85,7 +87,7 @@ namespace wasteless.Services
                 //Validate words
                 var spanWordString = String.Join(" ", spanWordList).ToLower();
                 var wordScoreList = new List<WordScore>();
-                char[] delimiters = { ' ', ',', '.', ':', ';', '\n' };
+                
                 var wordListValidated = spanWordString.ToLower().Split(delimiters, StringSplitOptions.RemoveEmptyEntries).Where(x => IsValid(x));
 
                 var dashed = new List<string>();
@@ -97,14 +99,11 @@ namespace wasteless.Services
                     try
                     {
                         if (dashed.Any(x => x.Contains(word) && !x.Equals(word))) continue;
-                        var tempCount = new List<int>();
-                        foreach (var split in word.Split('-').Where(x=>!String.IsNullOrWhiteSpace(x)))
-                        {
-                            tempCount.Add(Regex.Matches(spanWordString, split).Count);
-                        }
-                        tempCount.Add(Regex.Matches(spanWordString, word).Count);
-                        if (tempCount.Any())
-                            wordScoreList.Add(new WordScore { WordName = word, WordCount = (int)tempCount.Average() });
+                        var tempCount = 0;
+                        var occurrence = word.Split('-').Where(x => !String.IsNullOrWhiteSpace(x)).First();
+                        tempCount += Regex.Matches(spanWordString, occurrence).Count;
+                        if (tempCount != 0)
+                            wordScoreList.Add(new WordScore { WordName = word, WordCount = tempCount });
                     }
                     catch (Exception e)
                     {
@@ -113,8 +112,34 @@ namespace wasteless.Services
                 }
 
                 //TODO: WORDS WITH N OCCURRENCES - IF FOUND IN OTHER WORDS ("mælk" in "skummetmælk") ADD TO SCORE. INCLUDING NOISE WORDS.
+                //TODO: IMPORTANT! SCORE WORDS OCCURRING IN SEARCHRESULTS HIGHER THAN OTHERS!
 
                 list = wordScoreList.ToList();
+                
+
+                foreach(var word in list)
+                {
+                    var count = 0d;
+                    var occurrence = word.WordName;
+
+                    if (word.WordName.Contains("-"))
+                        occurrence = word.WordName.Split('-').First();
+
+                    foreach (var text in spanWordList)
+                    {
+                        try
+                        {
+                            if (text.ToLower().Contains(occurrence.ToLower()))
+                                count++;
+                        }
+                        catch (Exception e)
+                        {
+                            log.Error(e.ToString());
+                        }
+                    }
+                    word.WordCount *= count > 1 ? (1 + count/10) : 1;
+                }
+
                 return list;
             }
             catch (Exception e)
@@ -128,7 +153,7 @@ namespace wasteless.Services
             //TODO: Word occurring 5 times in 1 span = bad. Word occurring 1 time in 5 spans = good.
             //TODO: Regarding score: Give itempropped names higher score - or occurrence.
             public string WordName { get; set; }
-            public int WordCount { get; set; }
+            public double WordCount { get; set; }
             public string String() { return WordName + ": " + WordCount.ToString(); }
         }
         public class ToRemove
@@ -140,11 +165,16 @@ namespace wasteless.Services
         }
         public static bool IsValid(string str)
         {
-            var list = DBService.GetNoises().Select(x=>x.NoiseWord).ToList();
+            var cachedNoiseWords = HttpContext.Current.Cache["noisewords"] as List<string>;
+            if(cachedNoiseWords == null)
+            {
+                cachedNoiseWords = DBService.GetNoises().Select(x=>x.NoiseWord).ToList();
+                HttpContext.Current.Cache.Insert("noisewords", cachedNoiseWords, null, DateTime.Now.AddMinutes(1d), Cache.NoSlidingExpiration);
+            }
             Regex Validator = new Regex(@"^[abcdefghijklmnopqrstuvwxyzæøå-]+$");
             if (Validator.IsMatch(str))
                 if (str.Length > 1)
-                    return !list.Contains(str);
+                    return !cachedNoiseWords.Contains(str);
             return false;
         }
     }

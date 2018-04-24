@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Web;
+using System.Web.Caching;
 using wasteless.EntityModel;
 using wasteless.Forms;
 
@@ -249,11 +251,19 @@ namespace wasteless.Services
             {
                 using (var db = new wastelessdbEntities())
                 {
-                    if (db.Noises.Any(x => x.NoiseWord.Equals(name)))
+                    if (!db.Noises.Any(x => x.NoiseWord.Equals(name)))
                     {
                         var toAdd = new Noise { NoiseWord = name };
                         db.Noises.Add(toAdd);
                         db.SaveChanges();
+                        
+                        //TODO: CONSIDER CacheService.cs !
+                        var listToCache = HttpContext.Current.Cache["noisewords"] as List<string>;
+                        if (listToCache== null)
+                            listToCache = DBService.GetNoises().Select(x => x.NoiseWord).ToList();
+                        listToCache.Add(name);
+                        HttpContext.Current.Cache.Remove("noisewords");
+                        HttpContext.Current.Cache.Insert("noisewords", listToCache, null, DateTime.Now.AddMinutes(10d), Cache.NoSlidingExpiration);
                     }
                 }
             }

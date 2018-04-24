@@ -660,3 +660,129 @@ Parameter name: index
    at System.Data.Entity.Internal.Linq.DbQueryProvider.Execute[TResult](Expression expression)
    at System.Linq.Queryable.FirstOrDefault[TSource](IQueryable`1 source, Expression`1 predicate)
    at wasteless.Services.DBService.FormLogin(LoginForm loginForm) in C:\Users\Epico-u-01\source\repos\wasteless\wasteless\Services\DBService.cs:line 102
+2018-04-24 13:39:09,121 [5] INFO wasteless.Services.ScrapeService - Started ScrapeGoogle() with id 5740700301544.
+2018-04-24 13:39:45,542 [12] INFO wasteless.Services.ScrapeService - Started ScrapeGoogle() with id 5740700301544.
+2018-04-24 13:40:14,610 [6] INFO wasteless.Services.ScrapeService - Started ScrapeGoogle() with id 5740700301544.
+2018-04-24 13:40:27,491 [5] INFO wasteless.Services.ScrapeService - Started ScrapeGoogle() with id 5740700301544.
+2018-04-24 13:41:41,634 [5] INFO wasteless.Services.ScrapeService - Started ScrapeGoogle() with id 5740700301544.
+2018-04-24 13:48:18,004 [5] INFO wasteless.Services.ScrapeService - Started ScrapeGoogle() with id 5740700301544.
+2018-04-24 14:04:08,497 [9] INFO wasteless.Services.ScrapeService - Started ScrapeGoogle() with id 5740700301544.
+2018-04-24 14:09:24,881 [5] INFO wasteless.Services.ScrapeService - Started ScrapeGoogle() with id 5740700301544.
+2018-04-24 14:12:52,087 [5] INFO wasteless.Services.ScrapeService - Started ScrapeGoogle() with id 5740700301544.
+2018-04-24 14:15:56,951 [8] INFO wasteless.Services.ScrapeService - Started ScrapeGoogle() with id 5740700301544.
+2018-04-24 14:16:26,922 [8] ERROR wasteless.Services.DBService - System.Threading.ThreadAbortException: Thread was being aborted.
+   at SNIReadSyncOverAsync(SNI_ConnWrapper* , SNI_Packet** , Int32 )
+   at SNINativeMethodWrapper.SNIReadSyncOverAsync(SafeHandle pConn, IntPtr& packet, Int32 timeout)
+   at System.Data.SqlClient.TdsParserStateObject.ReadSniSyncOverAsync()
+   at System.Data.SqlClient.TdsParserStateObject.TryReadNetworkPacket()
+   at System.Data.SqlClient.TdsParserStateObject.TryPrepareBuffer()
+   at System.Data.SqlClient.TdsParserStateObject.TryReadByte(Byte& value)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<Reader>b__c(DbCommand t, DbCommandInterceptionContext`1 c)
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext,TResult](TTarget target, Func`3 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.Reader(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   at System.Data.Entity.Internal.InterceptableDbCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   at System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__6()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at wasteless.Services.DBService.GetNoises()
+2018-04-24 14:18:34,454 [5] INFO wasteless.Services.ScrapeService - Started ScrapeGoogle() with id 5740700301544.
+2018-04-24 14:37:23,078 [5] INFO wasteless.Services.ScrapeService - Started ScrapeGoogle() with id 5740700301544.
+2018-04-24 14:52:41,777 [28] ERROR wasteless.Services.DBService - System.Reflection.TargetException: Non-static field requires a target.
+   at System.Reflection.RtFieldInfo.CheckConsistency(Object target)
+   at System.Reflection.RtFieldInfo.InternalGetValue(Object obj, StackCrawlMark& stackMark)
+   at System.Reflection.RtFieldInfo.GetValue(Object obj)
+   at System.Data.Entity.Core.Objects.ELinq.QueryParameterExpression.TryGetFieldOrPropertyValue(MemberExpression me, Object instance, Object& memberValue)
+   at System.Data.Entity.Core.Objects.ELinq.QueryParameterExpression.TryEvaluatePath(Expression expression, ConstantExpression& constantExpression)
+   at System.Data.Entity.Core.Objects.ELinq.QueryParameterExpression.EvaluateParameter(Object[] arguments)
+   at System.Data.Entity.Core.Objects.ELinq.ELinqQueryState.GetExecutionPlan(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__6()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__3[TResult](IEnumerable`1 sequence)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[TResult](Expression expression)
+   at System.Data.Entity.Internal.Linq.DbQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.Any[TSource](IQueryable`1 source, Expression`1 predicate)
+   at wasteless.Services.DBService.CreateNoise(String name)
+2018-04-24 14:57:54,100 [25] INFO wasteless.Services.ScrapeService - Started ScrapeGoogle() with id 5740700301544.
+2018-04-24 15:04:17,406 [5] INFO wasteless.Services.ScrapeService - Started ScrapeGoogle() with id 5740700301544.
+2018-04-24 15:05:40,681 [10] INFO wasteless.Services.ScrapeService - Started ScrapeGoogle() with id 5740700301544.
+2018-04-24 15:13:55,384 [9] INFO wasteless.Services.ScrapeService - Started ScrapeGoogle() with id 5740700301544.
+2018-04-24 15:14:10,317 [10] INFO wasteless.Services.ScrapeService - Started ScrapeGoogle() with id 5740700301544.
+2018-04-24 15:14:39,877 [10] INFO wasteless.Services.ScrapeService - Started ScrapeGoogle() with id 5740700301544.
+2018-04-24 15:18:13,873 [5] INFO wasteless.Services.ScrapeService - Started ScrapeGoogle() with id 5740700301544.
+2018-04-24 15:19:22,881 [5] INFO wasteless.Services.ScrapeService - Started ScrapeGoogle() with id 5740700301544.
+2018-04-24 15:20:01,193 [11] INFO wasteless.Services.ScrapeService - Started ScrapeGoogle() with id 5740700301544.
+2018-04-24 15:21:44,595 [5] INFO wasteless.Services.ScrapeService - Started ScrapeGoogle() with id 5449000080264.
+2018-04-24 15:22:11,199 [11] INFO wasteless.Services.ScrapeService - Started ScrapeGoogle() with id 5700426293929.
+2018-04-24 15:25:35,251 [5] INFO wasteless.Services.ScrapeService - Started ScrapeGoogle() with id 5700426293929.
+2018-04-24 15:25:56,431 [5] INFO wasteless.Services.ScrapeService - Started ScrapeGoogle() with id 5700426293929.
+2018-04-24 15:27:22,640 [5] INFO wasteless.Services.ScrapeService - Started ScrapeGoogle() with id 5700426293929.
+2018-04-24 15:27:34,801 [5] INFO wasteless.Services.ScrapeService - Started ScrapeGoogle() with id 5700426293929.
+2018-04-24 15:31:20,348 [5] INFO wasteless.Services.ScrapeService - Started ScrapeGoogle() with id 5449000080264.
+2018-04-24 15:33:08,163 [5] INFO wasteless.Services.ScrapeService - Started ScrapeGoogle() with id 5449000080264.
+2018-04-24 15:36:44,617 [5] INFO wasteless.Services.ScrapeService - Started ScrapeGoogle() with id 5449000080264.
+2018-04-24 15:41:25,304 [5] INFO wasteless.Services.ScrapeService - Started ScrapeGoogle() with id 5449000080264.
+2018-04-24 15:42:35,260 [5] INFO wasteless.Services.ScrapeService - Started ScrapeGoogle() with id 5449000080264.
+2018-04-24 15:44:31,621 [5] INFO wasteless.Services.ScrapeService - Started ScrapeGoogle() with id 5449000080264.
+2018-04-24 15:46:26,639 [5] INFO wasteless.Services.ScrapeService - Started ScrapeGoogle() with id 5449000080264.
+2018-04-24 15:49:33,872 [5] INFO wasteless.Services.ScrapeService - Started ScrapeGoogle() with id 5449000080264.
+2018-04-24 15:51:05,810 [5] INFO wasteless.Services.ScrapeService - Started ScrapeGoogle() with id 5449000080264.
+2018-04-24 15:52:34,400 [26] INFO wasteless.Services.ScrapeService - Started ScrapeGoogle() with id 5449000080264.
+2018-04-24 15:54:50,235 [26] INFO wasteless.Services.ScrapeService - Started ScrapeGoogle() with id 5449000080264.
+2018-04-24 15:55:41,673 [26] INFO wasteless.Services.ScrapeService - Started ScrapeGoogle() with id 5449000080264.
+2018-04-24 15:57:32,459 [26] INFO wasteless.Services.ScrapeService - Started ScrapeGoogle() with id 5449000080264.
+2018-04-24 15:59:43,816 [69] INFO wasteless.Services.ScrapeService - Started ScrapeGoogle() with id 5449000080264.
+2018-04-24 16:01:42,342 [26] INFO wasteless.Services.ScrapeService - Started ScrapeGoogle() with id 5449000080264.
+2018-04-24 16:01:46,654 [77] INFO wasteless.Services.ScrapeService - Started ScrapeGoogle() with id 5449000080264.
+2018-04-24 16:02:09,672 [26] INFO wasteless.Services.ScrapeService - Started ScrapeGoogle() with id 5449000080264.
+2018-04-24 16:02:16,986 [76] INFO wasteless.Services.ScrapeService - Started ScrapeGoogle() with id 5449000080264.
+2018-04-24 16:02:47,450 [26] INFO wasteless.Services.ScrapeService - Started ScrapeGoogle() with id 5449000080264.
+2018-04-24 16:03:00,809 [26] INFO wasteless.Services.ScrapeService - Started ScrapeGoogle() with id 5449000080264.
+2018-04-24 16:03:27,834 [26] INFO wasteless.Services.ScrapeService - Started ScrapeGoogle() with id 5449000080264.
+2018-04-24 16:03:46,513 [76] INFO wasteless.Services.ScrapeService - Started ScrapeGoogle() with id 5449000080264.
+2018-04-24 16:04:07,175 [78] INFO wasteless.Services.ScrapeService - Started ScrapeGoogle() with id 5449000080264.
+2018-04-24 16:04:23,358 [26] INFO wasteless.Services.ScrapeService - Started ScrapeGoogle() with id 5449000080264.
+2018-04-24 16:04:46,135 [26] INFO wasteless.Services.ScrapeService - Started ScrapeGoogle() with id 5449000080264.
+2018-04-24 16:04:51,334 [26] INFO wasteless.Services.ScrapeService - Started ScrapeGoogle() with id 5449000080264.
+2018-04-24 16:04:53,975 [26] INFO wasteless.Services.ScrapeService - Started ScrapeGoogle() with id 5449000080264.
+2018-04-24 16:05:04,933 [26] INFO wasteless.Services.ScrapeService - Started ScrapeGoogle() with id 5741000131077.
+2018-04-24 16:05:45,563 [63] INFO wasteless.Services.ScrapeService - Started ScrapeGoogle() with id 5741000131077.
+2018-04-24 16:06:02,111 [78] INFO wasteless.Services.ScrapeService - Started ScrapeGoogle() with id 5741000131077.
+2018-04-24 16:06:11,292 [63] INFO wasteless.Services.ScrapeService - Started ScrapeGoogle() with id 5449000080264.
+2018-04-24 16:06:19,222 [63] INFO wasteless.Services.ScrapeService - Started ScrapeGoogle() with id 5700426293929.
+2018-04-24 16:06:42,156 [64] INFO wasteless.Services.ScrapeService - Started ScrapeGoogle() with id 5700426293929.
+2018-04-24 16:07:26,877 [63] INFO wasteless.Services.ScrapeService - Started ScrapeGoogle() with id 5700426293929.
+2018-04-24 16:07:33,286 [78] INFO wasteless.Services.ScrapeService - Started ScrapeGoogle() with id 5700426293929.
+2018-04-24 16:07:59,203 [63] INFO wasteless.Services.ScrapeService - Started ScrapeGoogle() with id 5700426293929.
+2018-04-24 16:08:10,340 [75] INFO wasteless.Services.ScrapeService - Started ScrapeGoogle() with id 5700426293929.
+2018-04-24 16:08:45,603 [63] INFO wasteless.Services.ScrapeService - Started ScrapeGoogle() with id 5700426293929.
+2018-04-24 16:10:34,534 [63] INFO wasteless.Services.ScrapeService - Started ScrapeGoogle() with id 5700426293929.
+2018-04-24 16:11:01,079 [63] INFO wasteless.Services.ScrapeService - Started ScrapeGoogle() with id 5700426293929.
+2018-04-24 16:11:07,268 [63] INFO wasteless.Services.ScrapeService - Started ScrapeGoogle() with id 5700426293929.
+2018-04-24 16:11:16,797 [63] INFO wasteless.Services.ScrapeService - Started ScrapeGoogle() with id 5700426293929.
+2018-04-24 16:11:23,900 [75] INFO wasteless.Services.ScrapeService - Started ScrapeGoogle() with id 5700426293929.
