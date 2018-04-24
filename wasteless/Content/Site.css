@@ -26,3 +26,7 @@ textarea {
 .card{
     margin:5px
 }
+#tonoiseform, #querytosearch, #queryoptions, #searchbutton{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
