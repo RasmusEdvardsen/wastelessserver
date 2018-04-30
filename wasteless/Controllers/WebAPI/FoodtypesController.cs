@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Net;
+using System.Net.Http;
 using System.Web.Http;
 using wasteless.EntityModel;
 using wasteless.Services;
@@ -8,9 +10,10 @@ namespace wasteless.Controllers.WebAPI
     public class FoodtypesController : ApiController
     {
         // GET: api/Foodtypes
-        public IEnumerable<string> Get()
+        public IHttpActionResult Get()
         {
-            return new string[] { "value1", "value2" };
+            IHttpActionResult response = ResponseMessage(new HttpResponseMessage(HttpStatusCode.NotImplemented));
+            return response;
         }
 
         // GET: api/Foodtypes/5
@@ -27,8 +30,10 @@ namespace wasteless.Controllers.WebAPI
         }
 
         // PUT: api/Foodtypes/5
-        public void Put(int id, [FromBody]string value)
+        public IHttpActionResult Put(int id, [FromBody]string value)
         {
+            IHttpActionResult response = ResponseMessage(new HttpResponseMessage(HttpStatusCode.NotImplemented));
+            return response;
         }
 
         // DELETE: api/Foodtypes/5

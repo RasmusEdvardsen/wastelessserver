@@ -176,6 +176,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\FoodTypeController.cs" />
     <Compile Include="Controllers\NoiseController.cs" />
+    <Compile Include="Controllers\WebAPI\CacheController.cs" />
     <Compile Include="Controllers\WebAPI\FoodtypesController.cs" />
     <Compile Include="Controllers\WebAPI\NoisesController.cs" />
     <Compile Include="Controllers\WebAPI\ScrapeController.cs" />
@@ -217,6 +218,7 @@
     <Compile Include="Resolvers\FoodTypeListResolver.cs" />
     <Compile Include="Resolvers\NoiseListResolver.cs" />
     <Compile Include="Services\AuthService.cs" />
+    <Compile Include="Services\CacheService.cs" />
     <Compile Include="Services\DBService.cs" />
     <Compile Include="Services\ScrapeService.cs" />
   </ItemGroup>

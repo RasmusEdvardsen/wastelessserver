@@ -16,9 +16,10 @@ namespace wasteless.Controllers.WebAPI
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         // GET: api/Users
-        public IEnumerable<string> Get()
+        public IHttpActionResult Get()
         {
-            return new string[] { "value1", "value2" };
+            IHttpActionResult response = ResponseMessage(new HttpResponseMessage(HttpStatusCode.NotImplemented));
+            return response;
         }
 
         // GET: api/Users/5
@@ -52,13 +53,17 @@ namespace wasteless.Controllers.WebAPI
         }
 
         // PUT: api/Users/5
-        public void Put(int id, [FromBody]string value)
+        public IHttpActionResult Put(int id, [FromBody]string value)
         {
+            IHttpActionResult response = ResponseMessage(new HttpResponseMessage(HttpStatusCode.NotImplemented));
+            return response;
         }
 
         // DELETE: api/Users/5
-        public void Delete(int id)
+        public IHttpActionResult Delete(int id)
         {
+            IHttpActionResult response = ResponseMessage(new HttpResponseMessage(HttpStatusCode.NotImplemented));
+            return response;
         }
 
         public class UserPostDTO

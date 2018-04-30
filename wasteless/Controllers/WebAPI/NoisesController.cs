@@ -12,9 +12,10 @@ namespace wasteless.Controllers.WebAPI
     public class NoisesController : ApiController
     {
         // GET: api/Noises
-        public IEnumerable<string> Get()
+        public IHttpActionResult Get()
         {
-            return new string[] { "value1", "value2" };
+            IHttpActionResult response = ResponseMessage(new HttpResponseMessage(HttpStatusCode.NotImplemented));
+            return response;
         }
 
         // GET: api/Noises/5
@@ -31,8 +32,10 @@ namespace wasteless.Controllers.WebAPI
         }
 
         // PUT: api/Noises/5
-        public void Put(int id, [FromBody]string value)
+        public IHttpActionResult Put(int id, [FromBody]string value)
         {
+            IHttpActionResult response = ResponseMessage(new HttpResponseMessage(HttpStatusCode.NotImplemented));
+            return response;
         }
 
         // DELETE: api/Noises/5

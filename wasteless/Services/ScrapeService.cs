@@ -25,8 +25,7 @@ namespace wasteless.Services
         /// <returns>Words found scraping google, scored by occurrences.</returns>
         public static IEnumerable<WordScore> ScrapeGoogle(string id)
         {
-            //TODO: Delete this message later, for load reasons.
-            log.Info("Started ScrapeGoogle() with id " + id + ".");
+            //TODO: SEARCH OTHER SITES AS WELL (EAN,UPC,CHECKER, etc.) SCORE WORDS FOUND FROM GOOGLE ALSO HIGHER.
             var list = new List<WordScore>();
             try
             {
@@ -98,6 +97,10 @@ namespace wasteless.Services
                 {
                     try
                     {
+                        if (word.Equals("be"))
+                        {
+                            var test = "";
+                        }
                         if (dashed.Any(x => x.Contains(word) && !x.Equals(word))) continue;
                         var tempCount = 0;
                         var occurrence = word.Split('-').Where(x => !String.IsNullOrWhiteSpace(x)).First();
@@ -116,7 +119,8 @@ namespace wasteless.Services
 
                 list = wordScoreList.ToList();
                 
-
+                //For every atomic occurrence of a word in html nodes, times the word score by (1+count/10)
+                //E.g. A word occurs in 7 html nodes -> wordscore*1.7.
                 foreach(var word in list)
                 {
                     var count = 0d;
@@ -140,6 +144,19 @@ namespace wasteless.Services
                     word.WordCount *= count > 1 ? (1 + count/10) : 1;
                 }
 
+                //Check DB for food types, and add to score if found.
+                var foodTypeList = CacheService.GetFoodTypes().Select(x=>x.ToLower());
+                if (foodTypeList.Any())
+                {
+                    foreach (var word in list)
+                    {
+                        if (foodTypeList.Equals(word.WordName.ToLower()))
+                        {
+                            //word.WordCount += 20;
+                        }
+                    }
+                }
+
                 return list;
             }
             catch (Exception e)
@@ -156,20 +173,14 @@ namespace wasteless.Services
             public double WordCount { get; set; }
             public string String() { return WordName + ": " + WordCount.ToString(); }
         }
-        public class ToRemove
-        {
-            //TODO: PUT INTO THE TABLE JUST MADE
-            public static readonly List<string> list = new List<string>() { "/", "og", "i", "and", "cl", "til", "export", "ean", "solvej", "nielsen"
-                                                                            , "er", "de", "har", "en", "mejeri", "øko", "at", "der", "som", "upc", "vær"
-                                                                            , "på", "den", "in", "or", "code", "packaging", "summer", "ch", "product", "www" };
-        }
+
         public static bool IsValid(string str)
         {
             var cachedNoiseWords = HttpContext.Current.Cache["noisewords"] as List<string>;
             if(cachedNoiseWords == null)
             {
                 cachedNoiseWords = DBService.GetNoises().Select(x=>x.NoiseWord).ToList();
-                HttpContext.Current.Cache.Insert("noisewords", cachedNoiseWords, null, DateTime.Now.AddMinutes(1d), Cache.NoSlidingExpiration);
+                HttpContext.Current.Cache.Insert("noisewords", cachedNoiseWords, null, DateTime.Now.AddMinutes(10d), Cache.NoSlidingExpiration);
             }
             Regex Validator = new Regex(@"^[abcdefghijklmnopqrstuvwxyzæøå-]+$");
             if (Validator.IsMatch(str))
@@ -177,5 +188,6 @@ namespace wasteless.Services
                     return !cachedNoiseWords.Contains(str);
             return false;
         }
+        
     }
 }

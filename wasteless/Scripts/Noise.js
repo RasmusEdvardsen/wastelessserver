@@ -16,6 +16,7 @@
         }
     });
 
+    //TODO: fix delete button after search
     $('#searchbutton').on('click', function () {
         //if (!$('#querytosearch').val()) return;
 
