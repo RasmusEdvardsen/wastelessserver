@@ -6,6 +6,7 @@ $(function () {
     } else if ($('body').hasClass('Noise')) {
         initNoise();
     }
+    
     $('#resetnoisewordscache').click(function () {
         var result = confirm('Reset Cache? This will impact the stability and loadtime of the server.');
 
@@ -15,8 +16,27 @@ $(function () {
         $this.prop('disabled', true);
 
         $.ajax({
-            url: "/api/cache/?action=reset",
-            type: 'GET',
+            url: "/api/cache/?key=noisewords",
+            type: 'DELETE',
+            success: function (data) {
+                $this.removeProp('disabled');
+                document.body.style.cursor = 'default';
+                alert('Cache reset. Actions that use the cache will automatically regenerate the cache.');
+            }
+        });
+    });
+
+    $('#resetfoodtypescache').click(function () {
+        var result = confirm('Reset Cache? This will impact the stability and loadtime of the server.');
+
+        //pre ajax
+        document.body.style.cursor = 'wait';
+        var $this = $(this);
+        $this.prop('disabled', true);
+
+        $.ajax({
+            url: "/api/cache/?key=foodtypes",
+            type: 'DELETE',
             success: function (data) {
                 $this.removeProp('disabled');
                 document.body.style.cursor = 'default';

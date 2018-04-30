@@ -20,6 +20,7 @@ namespace wasteless.Controllers.WebAPI
         // GET: api/Scrape/5
         public string Get(string id)
         {
+            //TODO: Check if id is of type EAN.
             //test 5741000131077
             //test 5449000080264
             //test 5700426293929

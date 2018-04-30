@@ -20,19 +20,7 @@ namespace wasteless.Controllers.WebAPI
         // GET: api/Cache/5
         public IHttpActionResult Get(string action)
         {
-            var httpStatCode = HttpStatusCode.InternalServerError;
-            switch (action)
-            {
-                case "reset":
-                    httpStatCode = CacheService.ResetCache() 
-                        ? HttpStatusCode.OK 
-                        : HttpStatusCode.InternalServerError;
-                    break;
-                default:
-                    httpStatCode = HttpStatusCode.InternalServerError;
-                    break;
-            }
-            IHttpActionResult response = ResponseMessage(new HttpResponseMessage(httpStatCode));
+            IHttpActionResult response = ResponseMessage(new HttpResponseMessage(HttpStatusCode.NotImplemented));
             return response;
         }
 
@@ -51,9 +39,13 @@ namespace wasteless.Controllers.WebAPI
         }
 
         // DELETE: api/Cache/5
-        public IHttpActionResult Delete(int id)
+        public IHttpActionResult Delete(string key)
         {
-            IHttpActionResult response = ResponseMessage(new HttpResponseMessage(HttpStatusCode.NotImplemented));
+            var httpStatCode = HttpStatusCode.InternalServerError;
+            httpStatCode = CacheService.ResetCache(key)
+                        ? HttpStatusCode.OK
+                        : HttpStatusCode.InternalServerError;
+            IHttpActionResult response = ResponseMessage(new HttpResponseMessage(httpStatCode));
             return response;
         }
     }

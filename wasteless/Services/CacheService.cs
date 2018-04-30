@@ -11,11 +11,11 @@ namespace wasteless.Services
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
-        public static bool ResetCache()
+        public static bool ResetCache(string key)
         {
             try
             {
-                HttpContext.Current.Cache.Remove("noisewords");
+                HttpContext.Current.Cache.Remove(key);
                 return true;
             }
             catch (Exception e)

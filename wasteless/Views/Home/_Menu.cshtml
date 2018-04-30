@@ -9,6 +9,19 @@
                 <h5 class="card-title text-center">Food Types</h5>
                 <p class="card-text text-center">CRUD Module for Food Types.</p>
             </div>
+            <div class="pos-f-t">
+                <div class="collapse" id="foodTypesToggle">
+                    <div class="p-4">
+                        <hr class="bg-white" />
+                        <button type="button" class="btn btn-outline-light btn-block" id="resetfoodtypescache">Reset Cache</button>
+                    </div>
+                </div>
+                <nav class="navbar navbar-dark">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#foodTypesToggle" aria-controls="foodTypesToggle" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </nav>
+            </div>
         </div>
 
         <div class="card text-white bg-dark" style="width: 18rem;">
@@ -19,35 +32,20 @@
                 <p class="card-text text-center">CRUD Module for Noise Words.</p>
             </div>
             <div class="pos-f-t">
-                <div class="collapse" id="navbarToggleExternalContent">
+                <div class="collapse" id="noiseWordsToggle">
                     <div class="p-4">
                         <hr class="bg-white" />
                         <button type="button" class="btn btn-outline-light btn-block" id="resetnoisewordscache">Reset Cache</button>
                     </div>
                 </div>
                 <nav class="navbar navbar-dark">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#noiseWordsToggle" aria-controls="noiseWordsToggle" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                 </nav>
             </div>
         </div>
     </div>
-
-    @*<div class="row">
-            <div class="col-6 card text-white bg-primary mb-3" style="max-width: 18rem;">
-                <div class="card-header">@Html.ActionLink("Food Types", "FoodType", "FoodType")</div>
-                <div class="card-body">
-                    <h5 class="card-title">CRUD Module for Food Types.</h5>
-                </div>
-            </div>
-            <div class="col-6 card text-white bg-secondary mb-3" style="max-width: 18rem;">
-                <div class="card-header">@Html.ActionLink("Noise Words", "Noise", "Noise")</div>
-                <div class="card-body">
-                    <h5 class="card-title">CRUD Module for Noise Words.</h5>
-                </div>
-            </div>
-        </div>*@
 </div>
 
 <script>

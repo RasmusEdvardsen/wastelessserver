@@ -146,13 +146,14 @@ namespace wasteless.Services
 
                 //Check DB for food types, and add to score if found.
                 var foodTypeList = CacheService.GetFoodTypes().Select(x=>x.ToLower());
+                string asd = string.Join("|", list.Select(x => x.WordName));
                 if (foodTypeList.Any())
                 {
                     foreach (var word in list)
                     {
-                        if (foodTypeList.Equals(word.WordName.ToLower()))
+                        if (foodTypeList.Any(x=>x.Equals(word.WordName.ToLower())))
                         {
-                            //word.WordCount += 20;
+                            word.WordCount += 30;
                         }
                     }
                 }
