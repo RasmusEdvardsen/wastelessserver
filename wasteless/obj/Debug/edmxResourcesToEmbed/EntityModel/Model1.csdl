@@ -17,6 +17,18 @@
     <Property Name="NoiseID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="NoiseWord" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
   </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="EAN" Type="Int32" />
+    <Property Name="FoodType" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ExpirationDate" Type="DateTime" Precision="0" />
+    <Property Name="GUID" Type="Guid" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="Self.FK_UserID" FromRole="Product" ToRole="Users" />
+  </EntityType>
   <EntityType Name="User">
     <Key>
       <PropertyRef Name="UserID" />
@@ -29,35 +41,13 @@
     <Property Name="IsAdmin" Type="Boolean" />
     <Property Name="CreatedDate" Type="DateTime" Precision="3" />
     <Property Name="ident" Type="Guid" />
-    <NavigationProperty Name="Products" Relationship="wastelessdbModel.FK_UserID" FromRole="User" ToRole="Product" />
-  </EntityType>
-  <EntityContainer Name="wastelessdbEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="FoodTypes" EntityType="Self.FoodType" />
-    <EntitySet Name="Noises" EntityType="Self.Noise" />
-    <EntitySet Name="Users" EntityType="Self.User" />
-    <EntitySet Name="Products" EntityType="wastelessdbModel.Product" />
-    <AssociationSet Name="FK_UserID" Association="wastelessdbModel.FK_UserID">
-      <End Role="User" EntitySet="Users" />
-      <End Role="Product" EntitySet="Products" />
-    </AssociationSet>
-  </EntityContainer>
-  <EntityType Name="Product">
-    <Key>
-      <PropertyRef Name="ProductID" />
-    </Key>
-    <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="UserID" Type="Int32" Nullable="false" />
-    <Property Name="EAN" Type="Int32" />
-    <Property Name="FoodType" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-    <Property Name="ExpirationDate" Type="DateTime" Precision="0" />
-    <Property Name="GUID" Type="Guid" Nullable="false" />
-    <NavigationProperty Name="User" Relationship="wastelessdbModel.FK_UserID" FromRole="Product" ToRole="User" />
+    <NavigationProperty Name="Products" Relationship="Self.FK_UserID" FromRole="Users" ToRole="Product" />
   </EntityType>
   <Association Name="FK_UserID">
-    <End Type="wastelessdbModel.User" Role="User" Multiplicity="1" />
-    <End Type="wastelessdbModel.Product" Role="Product" Multiplicity="*" />
+    <End Role="Users" Type="Self.User" Multiplicity="1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="User">
+      <Principal Role="Users">
         <PropertyRef Name="UserID" />
       </Principal>
       <Dependent Role="Product">
@@ -65,4 +55,14 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityContainer Name="wastelessdbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="FoodTypes" EntityType="Self.FoodType" />
+    <EntitySet Name="Noises" EntityType="Self.Noise" />
+    <EntitySet Name="Products" EntityType="Self.Product" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <AssociationSet Name="FK_UserID" Association="Self.FK_UserID">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+  </EntityContainer>
 </Schema>

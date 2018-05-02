@@ -13,6 +13,7 @@ namespace wasteless.Controllers
 
         public ActionResult Home()
         {
+            //TODO: MOVE INLINED CSS TO Site.css INSTEAD!
             //TODO: CONSIDER AUTH ISLOGGEDIN ELSEWHERE (LIKE GLOBAL.ASAX)
             //TODO: IMPLEMENT LOGOUT FUNCTIONALITY
             //TODO: GIVE BOXES ACTIONLINKS!

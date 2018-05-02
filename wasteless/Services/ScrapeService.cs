@@ -32,8 +32,8 @@ namespace wasteless.Services
                 //Get document
                 HtmlWeb web = new HtmlWeb();
                 HtmlDocument googleDoc = web.Load("https://www.google.dk/search?q=" + id);
-                
-                //Get inner search result divisions
+
+                #region Get search result elements
                 var divNodeList = googleDoc.DocumentNode.CssSelect("div");
                 var divNodeListCleaned = new List<HtmlNode>();
                 foreach (var divNode in divNodeList)
@@ -42,8 +42,9 @@ namespace wasteless.Services
                         if (divNode.Attributes["class"].Value == "g")
                             divNodeListCleaned.Add(divNode);
                 }
+                #endregion
 
-                //Get spantext, citation and anchorlink
+                #region Get relevant search result elements
                 var spanWordList = new List<String>();
                 var anchorNodeList = new List<HtmlNode>();
                 var citeNodeList = new List<HtmlNode>();
@@ -82,8 +83,9 @@ namespace wasteless.Services
                         log.Error(e.ToString());
                     }
                 }
+                #endregion
 
-                //Validate words
+                #region Word Validation & Occurrence counting
                 var spanWordString = String.Join(" ", spanWordList).ToLower();
                 var wordScoreList = new List<WordScore>();
                 
@@ -97,10 +99,6 @@ namespace wasteless.Services
                 {
                     try
                     {
-                        if (word.Equals("be"))
-                        {
-                            var test = "";
-                        }
                         if (dashed.Any(x => x.Contains(word) && !x.Equals(word))) continue;
                         var tempCount = 0;
                         var occurrence = word.Split('-').Where(x => !String.IsNullOrWhiteSpace(x)).First();
@@ -113,15 +111,15 @@ namespace wasteless.Services
                         log.Error(e.ToString());
                     }
                 }
+                list = wordScoreList.ToList();
+                #endregion
 
                 //TODO: WORDS WITH N OCCURRENCES - IF FOUND IN OTHER WORDS ("mælk" in "skummetmælk") ADD TO SCORE. INCLUDING NOISE WORDS.
                 //TODO: IMPORTANT! SCORE WORDS OCCURRING IN SEARCHRESULTS HIGHER THAN OTHERS!
-
-                list = wordScoreList.ToList();
                 
-                //For every atomic occurrence of a word in html nodes, times the word score by (1+count/10)
-                //E.g. A word occurs in 7 html nodes -> wordscore*1.7.
-                foreach(var word in list)
+                #region Word Scoring by relevance
+                //Example: A word occurs in 7 html nodes -> wordscore*1.7.
+                foreach (var word in list)
                 {
                     var count = 0d;
                     var occurrence = word.WordName;
@@ -143,10 +141,10 @@ namespace wasteless.Services
                     }
                     word.WordCount *= count > 1 ? (1 + count/10) : 1;
                 }
+                #endregion
 
-                //Check DB for food types, and add to score if found.
+                #region WhiteList
                 var foodTypeList = CacheService.GetFoodTypes().Select(x=>x.ToLower());
-                string asd = string.Join("|", list.Select(x => x.WordName));
                 if (foodTypeList.Any())
                 {
                     foreach (var word in list)
@@ -157,6 +155,7 @@ namespace wasteless.Services
                         }
                     }
                 }
+                #endregion
 
                 return list;
             }
@@ -166,15 +165,12 @@ namespace wasteless.Services
                 return list;
             }
         }
-        public class WordScore
-        {
-            //TODO: Word occurring 5 times in 1 span = bad. Word occurring 1 time in 5 spans = good.
-            //TODO: Regarding score: Give itempropped names higher score - or occurrence.
-            public string WordName { get; set; }
-            public double WordCount { get; set; }
-            public string String() { return WordName + ": " + WordCount.ToString(); }
-        }
 
+        /// <summary>
+        /// Validates words on regex requirements, and removes noisy words.
+        /// </summary>
+        /// <param name="str">Text to validate.</param>
+        /// <returns></returns>
         public static bool IsValid(string str)
         {
             var cachedNoiseWords = HttpContext.Current.Cache["noisewords"] as List<string>;
@@ -189,6 +185,14 @@ namespace wasteless.Services
                     return !cachedNoiseWords.Contains(str);
             return false;
         }
-        
+
+        public class WordScore
+        {
+            //TODO: Word occurring 5 times in 1 span = bad. Word occurring 1 time in 5 spans = good.
+            //TODO: Regarding score: Give itempropped names higher score - or occurrence.
+            public string WordName { get; set; }
+            public double WordCount { get; set; }
+            public string String() { return WordName + ": " + WordCount.ToString(); }
+        }
     }
 }

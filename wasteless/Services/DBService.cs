@@ -122,10 +122,10 @@ namespace wasteless.Services
             {
                 using (var db = new wastelessdbEntities())
                 {
-                    User user = password != null 
+                    return (password != null
                         ? db.Users.FirstOrDefault(x => x.Email == email && x.Password == password)
-                        : db.Users.FirstOrDefault(x => x.Email == email);
-                    return user ?? null;
+                        : db.Users.FirstOrDefault(x => x.Email == email)) 
+                        ?? null;
                 }
             }
             catch (Exception e)
@@ -181,7 +181,7 @@ namespace wasteless.Services
         }
         #endregion Users
 
-        #region Noise
+        #region Noises
         //TODO: MAKE NOISEWORD IN TABLE UNIQUE IN THE DATABASE! SECURITY!
 
         public static List<Noise> GetNoises()
@@ -273,5 +273,83 @@ namespace wasteless.Services
             }
         }
         #endregion Noise
+
+        #region Products
+        public static List<Product> GetProducts()
+        {
+            var products = new List<Product>();
+            try
+            {
+                using (var db = new wastelessdbEntities())
+                {
+                    products = db.Products.ToList();
+                    return products;
+                }
+            }
+            catch (Exception e)
+            {
+                log.Error(e.ToString());
+                return products;
+            }
+        }
+
+        public static List<Product> GetProductsForUser(int userID)
+        {
+            var products = new List<Product>();
+            try
+            {
+                using (var db = new wastelessdbEntities())
+                {
+                    return products = db.Products.Where(x => x.UserID == userID).ToList();
+                }
+            }
+            catch (Exception e)
+            {
+                log.Error(e.ToString());
+                return products;
+            }
+        }
+
+        public static void DeleteProduct(int id)
+        {
+            try
+            {
+                using (var db = new wastelessdbEntities())
+                {
+                    var toRemove = db.Products.First(x => x.ProductID == id);
+                    db.Products.Remove(toRemove);
+                    db.SaveChanges();
+                }
+            }
+            catch (Exception e)
+            {
+                log.Error(e.ToString());
+            }
+        }
+
+        public static bool CreateProduct(Product product)
+        {
+            if (product == null) return false;
+            if (product.GUID == new Guid())
+                product.GUID = Guid.NewGuid();
+            try
+            {
+                using (var db = new wastelessdbEntities())
+                {
+                    if ((db.Products.Any(x => x.GUID == product.GUID))
+                        || (!db.Users.Any(y => y.UserID == product.UserID)))
+                        return false;
+                    db.Products.Add(product);
+                    db.SaveChanges();
+                    return true;
+                }
+            }
+            catch (Exception e)
+            {
+                log.Error(e.ToString());
+                return false;
+            }
+        }
+        #endregion
     }
 }
