@@ -351,5 +351,69 @@ namespace wasteless.Services
             }
         }
         #endregion
+
+        #region EAN
+        public static List<EAN> GetEANs()
+        {
+            var ean = new List<EAN>();
+            try
+            {
+                using (var db = new wastelessdbEntities())
+                {
+                    ean = db.EANs.ToList();
+                    return ean;
+                }
+            }
+            catch (Exception e)
+            {
+                log.Error(e.ToString());
+                return ean;
+            }
+        }
+
+        public static void DeleteEAN(int id)
+        {
+            try
+            {
+                using (var db = new wastelessdbEntities())
+                {
+                    var toRemove = db.EANs.First(x => x.EANID == id);
+                    db.EANs.Remove(toRemove);
+                    db.SaveChanges();
+                }
+            }
+            catch (Exception e)
+            {
+                log.Error(e.ToString());
+            }
+        }
+
+        public static bool CreateEAN(int eanCode, string foodTypeName)
+        {
+            var ean = new EAN() { EAN_Value = eanCode.ToString() };
+            try
+            {
+                using (var db = new wastelessdbEntities())
+                {
+                    var foodtype = db.FoodTypes.FirstOrDefault(x=>x.FoodTypeName.Equals(foodTypeName));
+                    if (foodtype == null)
+                    {
+                        CreateFoodType(foodTypeName, "");
+                        foodtype = db.FoodTypes.FirstOrDefault(x => x.FoodTypeName.Equals(foodTypeName));
+                    }
+                    
+                    ean.FoodTypeID = foodtype.FoodTypeID;
+                    db.EANs.Add(ean);
+                    db.SaveChanges();
+                    return true;
+                }
+            }
+            catch (Exception e)
+            {
+                log.Error(e.ToString());
+                return false;
+            }
+        }
+        #endregion
     }
 }

@@ -11,17 +11,16 @@ namespace wasteless.EntityModel
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations.Schema;
-
+    
     public partial class Product
     {
         public int ProductID { get; set; }
         public int UserID { get; set; }
-        public Nullable<int> EAN { get; set; }
-        public string FoodType { get; set; }
+        public Nullable<int> EANID { get; set; }
         public Nullable<System.DateTime> ExpirationDate { get; set; }
         public System.Guid GUID { get; set; }
     
+        public virtual EAN EAN { get; set; }
         public virtual User User { get; set; }
     }
 }

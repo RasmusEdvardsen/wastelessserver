@@ -1,16 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="wastelessdbModelStoreContainer" CdmEntityContainer="wastelessdbEntities">
-    <EntitySetMapping Name="EANs">
-      <EntityTypeMapping TypeName="wastelessdbModel.EAN">
-        <MappingFragment StoreEntitySet="EAN">
-          <ScalarProperty Name="EANID" ColumnName="EANID" />
-          <ScalarProperty Name="FoodTypeID" ColumnName="FoodTypeID" />
-          <ScalarProperty Name="EAN_Value" ColumnName="EAN_Value" />
-          <ScalarProperty Name="EAN_Score" ColumnName="EAN_Score" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="FoodTypes">
       <EntityTypeMapping TypeName="wastelessdbModel.FoodType">
         <MappingFragment StoreEntitySet="FoodTypes">
@@ -35,7 +25,8 @@
         <MappingFragment StoreEntitySet="Product">
           <ScalarProperty Name="ProductID" ColumnName="ProductID" />
           <ScalarProperty Name="UserID" ColumnName="UserID" />
-          <ScalarProperty Name="EANID" ColumnName="EANID" />
+          <ScalarProperty Name="EAN" ColumnName="EAN" />
+          <ScalarProperty Name="FoodType" ColumnName="FoodType" />
           <ScalarProperty Name="ExpirationDate" ColumnName="ExpirationDate" />
           <ScalarProperty Name="GUID" ColumnName="GUID" />
         </MappingFragment>

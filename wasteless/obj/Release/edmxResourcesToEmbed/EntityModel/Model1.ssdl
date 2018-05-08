@@ -1,14 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="wastelessdbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityType Name="EAN">
-    <Key>
-      <PropertyRef Name="EANID" />
-    </Key>
-    <Property Name="EANID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="FoodTypeID" Type="int" />
-    <Property Name="EAN_Value" Type="nvarchar" MaxLength="255" Nullable="false" />
-    <Property Name="EAN_Score" Type="float" Nullable="false" />
-  </EntityType>
   <EntityType Name="FoodTypes">
     <Key>
       <PropertyRef Name="FoodTypeID" />
@@ -32,7 +23,8 @@
     </Key>
     <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="UserID" Type="int" Nullable="false" />
-    <Property Name="EANID" Type="int" />
+    <Property Name="EAN" Type="int" />
+    <Property Name="FoodType" Type="nvarchar" MaxLength="255" />
     <Property Name="ExpirationDate" Type="date" />
     <Property Name="GUID" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
@@ -49,30 +41,6 @@
     <Property Name="CreatedDate" Type="datetime" />
     <Property Name="ident" Type="uniqueidentifier" />
   </EntityType>
-  <Association Name="FK_EANID">
-    <End Role="EAN" Type="Self.EAN" Multiplicity="0..1" />
-    <End Role="Product" Type="Self.Product" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="EAN">
-        <PropertyRef Name="EANID" />
-      </Principal>
-      <Dependent Role="Product">
-        <PropertyRef Name="EANID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_FoodTypeID">
-    <End Role="FoodTypes" Type="Self.FoodTypes" Multiplicity="0..1" />
-    <End Role="EAN" Type="Self.EAN" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="FoodTypes">
-        <PropertyRef Name="FoodTypeID" />
-      </Principal>
-      <Dependent Role="EAN">
-        <PropertyRef Name="FoodTypeID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_UserID">
     <End Role="Users" Type="Self.Users" Multiplicity="1" />
     <End Role="Product" Type="Self.Product" Multiplicity="*" />
@@ -86,19 +54,10 @@
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="wastelessdbModelStoreContainer">
-    <EntitySet Name="EAN" EntityType="Self.EAN" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="FoodTypes" EntityType="Self.FoodTypes" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Noise" EntityType="Self.Noise" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK_EANID" Association="Self.FK_EANID">
-      <End Role="EAN" EntitySet="EAN" />
-      <End Role="Product" EntitySet="Product" />
-    </AssociationSet>
-    <AssociationSet Name="FK_FoodTypeID" Association="Self.FK_FoodTypeID">
-      <End Role="FoodTypes" EntitySet="FoodTypes" />
-      <End Role="EAN" EntitySet="EAN" />
-    </AssociationSet>
     <AssociationSet Name="FK_UserID" Association="Self.FK_UserID">
       <End Role="Users" EntitySet="Users" />
       <End Role="Product" EntitySet="Product" />

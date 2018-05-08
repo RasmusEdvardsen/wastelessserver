@@ -1,5 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="wastelessdbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="EAN">
+    <Key>
+      <PropertyRef Name="EANID" />
+    </Key>
+    <Property Name="EANID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FoodTypeID" Type="Int32" />
+    <Property Name="EAN_Value" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EAN_Score" Type="Double" Nullable="false" />
+    <NavigationProperty Name="Products" Relationship="Self.FK_EANID" FromRole="EAN" ToRole="Product" />
+    <NavigationProperty Name="FoodType" Relationship="Self.FK_FoodTypeID" FromRole="EAN" ToRole="FoodTypes" />
+  </EntityType>
   <EntityType Name="FoodType">
     <Key>
       <PropertyRef Name="FoodTypeID" />
@@ -9,6 +20,7 @@
     <Property Name="Code" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
     <Property Name="Created" Type="DateTime" Precision="3" />
     <Property Name="GUID" Type="Guid" />
+    <NavigationProperty Name="EANs" Relationship="Self.FK_FoodTypeID" FromRole="FoodTypes" ToRole="EAN" />
   </EntityType>
   <EntityType Name="Noise">
     <Key>
@@ -16,6 +28,18 @@
     </Key>
     <Property Name="NoiseID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="NoiseWord" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="EANID" Type="Int32" />
+    <Property Name="ExpirationDate" Type="DateTime" Precision="0" />
+    <Property Name="GUID" Type="Guid" Nullable="false" />
+    <NavigationProperty Name="EAN" Relationship="Self.FK_EANID" FromRole="Product" ToRole="EAN" />
+    <NavigationProperty Name="User" Relationship="Self.FK_UserID" FromRole="Product" ToRole="Users" />
   </EntityType>
   <EntityType Name="User">
     <Key>
@@ -29,10 +53,61 @@
     <Property Name="IsAdmin" Type="Boolean" />
     <Property Name="CreatedDate" Type="DateTime" Precision="3" />
     <Property Name="ident" Type="Guid" />
+    <NavigationProperty Name="Products" Relationship="Self.FK_UserID" FromRole="Users" ToRole="Product" />
   </EntityType>
+  <Association Name="FK_EANID">
+    <End Role="EAN" Type="Self.EAN" Multiplicity="0..1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EAN">
+        <PropertyRef Name="EANID" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="EANID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FoodTypeID">
+    <End Role="FoodTypes" Type="Self.FoodType" Multiplicity="0..1" />
+    <End Role="EAN" Type="Self.EAN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FoodTypes">
+        <PropertyRef Name="FoodTypeID" />
+      </Principal>
+      <Dependent Role="EAN">
+        <PropertyRef Name="FoodTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserID">
+    <End Role="Users" Type="Self.User" Multiplicity="1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="wastelessdbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="EANs" EntityType="Self.EAN" />
     <EntitySet Name="FoodTypes" EntityType="Self.FoodType" />
     <EntitySet Name="Noises" EntityType="Self.Noise" />
+    <EntitySet Name="Products" EntityType="Self.Product" />
     <EntitySet Name="Users" EntityType="Self.User" />
+    <AssociationSet Name="FK_EANID" Association="Self.FK_EANID">
+      <End Role="EAN" EntitySet="EANs" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FoodTypeID" Association="Self.FK_FoodTypeID">
+      <End Role="FoodTypes" EntitySet="FoodTypes" />
+      <End Role="EAN" EntitySet="EANs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserID" Association="Self.FK_UserID">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
   </EntityContainer>
 </Schema>

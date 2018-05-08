@@ -958,3 +958,17 @@ The statement has been terminated.
    at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
    at System.Data.Entity.DbContext.SaveChanges()
    at wasteless.Services.DBService.CreateProduct(Product product)
+2018-05-08 16:29:29,280 [9] ERROR wasteless.Services.DBService - System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   at System.Data.Entity.DbContext.SaveChanges()
+   at wasteless.Services.DBService.CreateFoodType(String name, String code) in C:\Users\Epico-u-01\source\repos\wasteless\wasteless\Services\DBService.cs:line 86
+2018-05-08 16:29:29,392 [9] ERROR wasteless.Services.DBService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.DBService.CreateEAN(Int32 eanID, String foodTypeName) in C:\Users\Epico-u-01\source\repos\wasteless\wasteless\Services\DBService.cs:line 404
+2018-05-08 16:29:57,529 [24] ERROR wasteless.Services.DBService - System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   at System.Data.Entity.DbContext.SaveChanges()
+   at wasteless.Services.DBService.CreateFoodType(String name, String code) in C:\Users\Epico-u-01\source\repos\wasteless\wasteless\Services\DBService.cs:line 86
+2018-05-08 16:29:57,648 [24] ERROR wasteless.Services.DBService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.DBService.CreateEAN(Int32 eanID, String foodTypeName) in C:\Users\Epico-u-01\source\repos\wasteless\wasteless\Services\DBService.cs:line 404

@@ -35,6 +35,7 @@ namespace wasteless.EntityModel
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<EAN> EANs { get; set; }
         public virtual DbSet<FoodType> FoodTypes { get; set; }
         public virtual DbSet<Noise> Noises { get; set; }
         public virtual DbSet<Product> Products { get; set; }

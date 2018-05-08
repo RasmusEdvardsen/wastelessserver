@@ -12,21 +12,21 @@ namespace wasteless.EntityModel
     using System;
     using System.Collections.Generic;
     
-    public partial class FoodType
+    public partial class EAN
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public FoodType()
+        public EAN()
         {
-            this.EANs = new HashSet<EAN>();
+            this.Products = new HashSet<Product>();
         }
     
-        public int FoodTypeID { get; set; }
-        public string FoodTypeName { get; set; }
-        public string Code { get; set; }
-        public Nullable<System.DateTime> Created { get; set; }
-        public Nullable<System.Guid> GUID { get; set; }
+        public int EANID { get; set; }
+        public Nullable<int> FoodTypeID { get; set; }
+        public string EAN_Value { get; set; }
+        public double EAN_Score { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<EAN> EANs { get; set; }
+        public virtual ICollection<Product> Products { get; set; }
+        public virtual FoodType FoodType { get; set; }
     }
 }

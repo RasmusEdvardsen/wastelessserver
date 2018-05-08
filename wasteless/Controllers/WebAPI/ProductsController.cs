@@ -7,6 +7,7 @@ using System.Web.Http;
 using wasteless.EntityModel;
 using Newtonsoft.Json;
 using wasteless.Services;
+using System.Reflection;
 
 namespace wasteless.Controllers.WebAPI
 {
@@ -29,10 +30,12 @@ namespace wasteless.Controllers.WebAPI
         }
 
         // POST: api/Product
-        public IHttpActionResult Post([FromBody]Product obj)
+        public IHttpActionResult Post([FromBody]ProductDTO productDTO)
         {
             var httpRspMsg = new HttpResponseMessage(HttpStatusCode.InternalServerError);
-            if (DBService.CreateProduct(obj))
+            var ean = DBService.CreateEAN(productDTO.EAN, productDTO.FoodTypeName);
+            var product = DBService.CreateProduct(new Product() { UserID = productDTO.UserID, EANID = productDTO.EAN, ExpirationDate = productDTO.ExpirationDate });
+            if (ean && product)
                 httpRspMsg.StatusCode = HttpStatusCode.OK;
             IHttpActionResult response = ResponseMessage(httpRspMsg);
             return response;
@@ -51,5 +54,14 @@ namespace wasteless.Controllers.WebAPI
             IHttpActionResult response = ResponseMessage(new HttpResponseMessage(HttpStatusCode.NotImplemented));
             return response;
         }
+        
+    }
+
+    public class ProductDTO
+    {
+        public int UserID { get; set; }
+        public int EAN { get; set; }
+        public DateTime ExpirationDate { get; set; }
+        public string FoodTypeName { get; set; }
     }
 }
