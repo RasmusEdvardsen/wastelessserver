@@ -74,7 +74,7 @@ namespace wasteless.Services
             }
         }
 
-        public static void CreateFoodType(string name, string code)
+        public static bool CreateFoodType(string name, string code)
         {
             if (String.IsNullOrWhiteSpace(code)) code = "";
             try
@@ -84,11 +84,13 @@ namespace wasteless.Services
                     var toAdd = new FoodType { FoodTypeName = name, Code = code, Created = DateTime.Now, GUID = Guid.NewGuid() };
                     db.FoodTypes.Add(toAdd);
                     db.SaveChanges();
+                    return true;
                 }
             }
             catch (Exception e)
             {
                 log.Error(e.ToString());
+                return false;
             }
         }
         #endregion FoodTypes
@@ -153,13 +155,13 @@ namespace wasteless.Services
         }
 
         //TODO: Consider httprspcode returns instead of bool.
-        public static bool ClientSignup(string email, string password)
+        public static User ClientSignup(string email, string password)
         {
             try
             {
                 using(var db = new wastelessdbEntities())
                 {
-                    if (db.Users.Any(x => x.Email == email || (x.Email == email && x.Password == password))) return false;
+                    if (db.Users.Any(x => x.Email == email || (x.Email == email && x.Password == password))) return null;
                     var userToSignUp = new User
                     {
                         Email = email,
@@ -170,13 +172,13 @@ namespace wasteless.Services
                     };
                     db.Users.Add(userToSignUp);
                     var saveChanges = db.SaveChanges();
-                    return true;
+                    return userToSignUp;
                 }
             }
             catch (Exception e)
             {
                 log.Error(e.ToString());
-                return false;
+                return null;
             }
         }
         #endregion Users
@@ -398,7 +400,8 @@ namespace wasteless.Services
                     var foodtype = db.FoodTypes.FirstOrDefault(x=>x.FoodTypeName.Equals(foodTypeName));
                     if (foodtype == null)
                     {
-                        CreateFoodType(foodTypeName, "");
+                        if (!CreateFoodType(foodTypeName, ""))
+                            return false;
                         foodtype = db.FoodTypes.FirstOrDefault(x => x.FoodTypeName.Equals(foodTypeName));
                     }
                     

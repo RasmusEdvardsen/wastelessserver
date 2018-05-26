@@ -26,8 +26,9 @@ namespace wasteless.Controllers.WebAPI
             //test 5700426293929
             //TODO: CHECK EAN TABLE IF EXISTS THEN RETURN THAT
             //TODO: DO ABOVE NOW, AS IT IS POSSIBLE, DUE TO REBASE OF DB!
+            //TODO: IF FOOD TYPE IS IN 2 WORDS!
             var list = ScrapeService.ScrapeGoogle(id) ?? new List<ScrapeService.WordScore>();
-            return String.Join(", ", list.OrderByDescending(x => x.WordCount).Select(x => x.String()));
+            return String.Join(", ", list.OrderByDescending(x => x.WordCount).Select(x => x.WordName));
 
             //TODO: TRY VISIT OTHER WEBSITES, SEARCH FOR MICRODATA SCHEMAS
             //TODO: digit-eyes.com/upcCode/

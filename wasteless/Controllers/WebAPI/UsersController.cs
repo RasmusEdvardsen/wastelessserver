@@ -46,8 +46,14 @@ namespace wasteless.Controllers.WebAPI
             var rspMsg = new HttpResponseMessage(HttpStatusCode.NotAcceptable);
             //this.Validate<UserPostDTO>(userPostDTO);
             if (ModelState.IsValid)
-                if (DBService.ClientSignup(userPostDTO.email, userPostDTO.password))
+            {
+                var user = DBService.ClientSignup(userPostDTO.email, userPostDTO.password);
+                if (user != null)
+                {
                     rspMsg.StatusCode = HttpStatusCode.OK;
+                    rspMsg.Content = new StringContent(JsonConvert.SerializeObject(user), Encoding.UTF8, "application/json");
+                }
+            }
             IHttpActionResult response = ResponseMessage(rspMsg);
             return response;
         }
@@ -69,6 +75,7 @@ namespace wasteless.Controllers.WebAPI
         public class UserPostDTO
         {
             [EmailAddress]
+
             public string email { get; set; }
             public string password { get; set; }
         }
