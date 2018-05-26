@@ -390,7 +390,7 @@ namespace wasteless.Services
             }
         }
 
-        public static bool CreateEAN(int eanCode, string foodTypeName)
+        public static EAN CreateEAN(int eanCode, string foodTypeName)
         {
             var ean = new EAN() { EAN_Value = eanCode.ToString() };
             try
@@ -401,20 +401,20 @@ namespace wasteless.Services
                     if (foodtype == null)
                     {
                         if (!CreateFoodType(foodTypeName, ""))
-                            return false;
+                            return null;
                         foodtype = db.FoodTypes.FirstOrDefault(x => x.FoodTypeName.Equals(foodTypeName));
                     }
                     
                     ean.FoodTypeID = foodtype.FoodTypeID;
                     db.EANs.Add(ean);
                     db.SaveChanges();
-                    return true;
+                    return ean;
                 }
             }
             catch (Exception e)
             {
                 log.Error(e.ToString());
-                return false;
+                return ean;
             }
         }
         #endregion

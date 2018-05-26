@@ -34,9 +34,12 @@ namespace wasteless.Controllers.WebAPI
         {
             var httpRspMsg = new HttpResponseMessage(HttpStatusCode.InternalServerError);
             var ean = DBService.CreateEAN(productDTO.EAN, productDTO.FoodTypeName);
-            var product = DBService.CreateProduct(new Product() { UserID = productDTO.UserID, EANID = productDTO.EAN, ExpirationDate = productDTO.ExpirationDate });
-            if (ean && product)
-                httpRspMsg.StatusCode = HttpStatusCode.OK;
+            if(ean != null)
+            {
+                var product = DBService.CreateProduct(new Product() { UserID = productDTO.UserID, EANID = ean.EANID, ExpirationDate = productDTO.ExpirationDate });
+                if (ean != null && product)
+                    httpRspMsg.StatusCode = HttpStatusCode.OK;
+            }
             IHttpActionResult response = ResponseMessage(httpRspMsg);
             return response;
         }
