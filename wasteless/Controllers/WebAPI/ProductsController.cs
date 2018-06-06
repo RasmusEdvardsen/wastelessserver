@@ -21,7 +21,7 @@ namespace wasteless.Controllers.WebAPI
         }
 
         // GET: api/Product/5
-        public IHttpActionResult Get(int userID)
+        public IHttpActionResult Get(int userID) //TODO:?concreteproducts=true
         {
             var products = DBService.GetProductsForUser(userID);
             return products.Any() 

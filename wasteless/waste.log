@@ -1219,3 +1219,189 @@ The statement has been terminated.
    at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
    at System.Data.Entity.DbContext.SaveChanges()
    at wasteless.Services.DBService.CreateFoodType(String name, String code) in C:\Users\Epico-u-01\source\repos\wasteless\wasteless\Services\DBService.cs:line 86
+2018-06-06 20:18:33,239 [6] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id) in C:\Users\Epico-u-01\source\repos\wasteless\wasteless\Services\ScrapeService.cs:line 58
+2018-06-06 20:18:33,285 [6] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id) in C:\Users\Epico-u-01\source\repos\wasteless\wasteless\Services\ScrapeService.cs:line 58
+2018-06-06 20:18:33,317 [6] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id) in C:\Users\Epico-u-01\source\repos\wasteless\wasteless\Services\ScrapeService.cs:line 58
+2018-06-06 20:18:33,348 [6] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id) in C:\Users\Epico-u-01\source\repos\wasteless\wasteless\Services\ScrapeService.cs:line 58
+2018-06-06 20:18:33,378 [6] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id) in C:\Users\Epico-u-01\source\repos\wasteless\wasteless\Services\ScrapeService.cs:line 58
+2018-06-06 20:19:26,293 [5] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-06-06 20:19:26,327 [5] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-06-06 20:19:26,361 [5] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-06-06 20:19:26,394 [5] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-06-06 20:19:26,430 [5] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-06-06 20:20:01,066 [5] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-06-06 20:20:01,099 [5] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-06-06 20:20:01,130 [5] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-06-06 20:20:01,162 [5] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-06-06 20:20:01,191 [5] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-06-06 20:35:35,468 [7] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id) in C:\Users\Epico-u-01\source\repos\wasteless\wasteless\Services\ScrapeService.cs:line 58
+2018-06-06 20:35:35,502 [7] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id) in C:\Users\Epico-u-01\source\repos\wasteless\wasteless\Services\ScrapeService.cs:line 58
+2018-06-06 20:35:35,518 [7] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id) in C:\Users\Epico-u-01\source\repos\wasteless\wasteless\Services\ScrapeService.cs:line 58
+2018-06-06 20:35:35,557 [7] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id) in C:\Users\Epico-u-01\source\repos\wasteless\wasteless\Services\ScrapeService.cs:line 58
+2018-06-06 20:35:35,611 [7] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id) in C:\Users\Epico-u-01\source\repos\wasteless\wasteless\Services\ScrapeService.cs:line 58
+2018-06-06 20:37:33,032 [14] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-06-06 20:37:33,081 [14] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-06-06 20:37:33,214 [14] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-06-06 20:37:33,237 [14] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-06-06 20:37:33,257 [14] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-06-06 20:37:51,661 [7] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-06-06 20:37:51,707 [7] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-06-06 20:37:51,750 [7] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-06-06 20:37:51,800 [7] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-06-06 20:37:51,843 [7] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-06-06 20:39:41,331 [7] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-06-06 20:39:41,398 [7] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-06-06 20:39:41,468 [7] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-06-06 20:39:41,489 [7] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-06-06 20:39:41,503 [7] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-06-06 20:39:58,626 [18] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-06-06 20:39:58,657 [18] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-06-06 20:39:58,684 [18] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-06-06 20:39:58,715 [18] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-06-06 20:39:58,744 [18] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-06-06 20:41:29,664 [7] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-06-06 20:41:29,694 [7] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-06-06 20:41:29,723 [7] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-06-06 20:41:29,750 [7] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-06-06 20:41:29,784 [7] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-06-06 20:43:52,876 [8] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-06-06 20:43:52,940 [8] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-06-06 20:43:52,982 [8] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-06-06 20:43:53,118 [8] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-06-06 20:43:53,144 [8] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-06-06 20:50:05,311 [8] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-06-06 20:50:05,345 [8] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-06-06 20:50:05,374 [8] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-06-06 20:50:05,408 [8] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-06-06 20:50:05,442 [8] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-06-06 20:50:25,618 [7] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-06-06 20:50:25,640 [7] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-06-06 20:50:25,659 [7] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-06-06 20:50:25,677 [7] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-06-06 20:50:25,693 [7] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-06-06 20:51:13,401 [7] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-06-06 20:51:13,440 [7] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-06-06 20:51:13,487 [7] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-06-06 20:51:13,533 [7] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-06-06 20:51:13,578 [7] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-06-06 20:51:27,915 [7] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-06-06 20:51:27,957 [7] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-06-06 20:51:27,996 [7] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-06-06 20:51:28,036 [7] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-06-06 20:52:15,003 [7] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-06-06 20:52:15,021 [7] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-06-06 20:52:15,041 [7] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-06-06 20:52:15,060 [7] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-06-06 20:54:39,182 [7] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id) in C:\Users\Epico-u-01\source\repos\wasteless\wasteless\Services\ScrapeService.cs:line 58
+2018-06-06 20:54:39,222 [7] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id) in C:\Users\Epico-u-01\source\repos\wasteless\wasteless\Services\ScrapeService.cs:line 58
+2018-06-06 20:54:39,253 [7] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id) in C:\Users\Epico-u-01\source\repos\wasteless\wasteless\Services\ScrapeService.cs:line 58
+2018-06-06 20:54:39,283 [7] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id) in C:\Users\Epico-u-01\source\repos\wasteless\wasteless\Services\ScrapeService.cs:line 58
+2018-06-06 20:56:31,847 [7] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-06-06 20:56:31,876 [7] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-06-06 20:56:31,900 [7] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-06-06 20:56:31,923 [7] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-06-06 20:57:56,336 [7] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-06-06 20:57:56,398 [7] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-06-06 20:57:56,440 [7] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-06-06 20:57:56,466 [7] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id)
+2018-06-06 21:09:44,847 [8] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id) in C:\Users\Epico-u-01\source\repos\wasteless\wasteless\Services\ScrapeService.cs:line 58
+2018-06-06 21:09:44,873 [8] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id) in C:\Users\Epico-u-01\source\repos\wasteless\wasteless\Services\ScrapeService.cs:line 58
+2018-06-06 21:09:44,891 [8] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id) in C:\Users\Epico-u-01\source\repos\wasteless\wasteless\Services\ScrapeService.cs:line 58
+2018-06-06 21:09:44,907 [8] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id) in C:\Users\Epico-u-01\source\repos\wasteless\wasteless\Services\ScrapeService.cs:line 58
+2018-06-06 21:11:20,570 [10] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id) in C:\Users\Epico-u-01\source\repos\wasteless\wasteless\Services\ScrapeService.cs:line 58
+2018-06-06 21:11:20,590 [10] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id) in C:\Users\Epico-u-01\source\repos\wasteless\wasteless\Services\ScrapeService.cs:line 58
+2018-06-06 21:11:20,610 [10] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id) in C:\Users\Epico-u-01\source\repos\wasteless\wasteless\Services\ScrapeService.cs:line 58
+2018-06-06 21:11:20,634 [10] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
+   at wasteless.Services.ScrapeService.ScrapeGoogle(String id) in C:\Users\Epico-u-01\source\repos\wasteless\wasteless\Services\ScrapeService.cs:line 58

@@ -9,6 +9,7 @@ using wasteless.Forms;
 
 namespace wasteless.Services
 {
+    //Should have considered going public, not static, with this class, due to memory
     public class DBService
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
@@ -91,6 +92,14 @@ namespace wasteless.Services
             {
                 log.Error(e.ToString());
                 return false;
+            }
+        }
+        
+        public static FoodType GetFoodType(int eanId)
+        {
+            using (var db = new wastelessdbEntities())
+            {
+                return db.FoodTypes.FirstOrDefault(x => x.FoodTypeID == eanId);
             }
         }
         #endregion FoodTypes
@@ -392,7 +401,7 @@ namespace wasteless.Services
 
         public static EAN CreateEAN(int eanCode, string foodTypeName)
         {
-            var ean = new EAN() { EAN_Value = eanCode.ToString() };
+            var ean = new EAN() { EAN_Value = eanCode.ToString(), EAN_Score = 1 };
             try
             {
                 using (var db = new wastelessdbEntities())
@@ -404,7 +413,15 @@ namespace wasteless.Services
                             return null;
                         foodtype = db.FoodTypes.FirstOrDefault(x => x.FoodTypeName.Equals(foodTypeName));
                     }
-                    
+
+                    var existingEan = db.EANs.FirstOrDefault(x => x.FoodTypeID == foodtype.FoodTypeID && x.EAN_Value == eanCode.ToString());
+                    if (existingEan != null)
+                    {
+                        existingEan.EAN_Score += 1;
+                        db.SaveChanges();
+                        return existingEan;
+                    }
+
                     ean.FoodTypeID = foodtype.FoodTypeID;
                     db.EANs.Add(ean);
                     db.SaveChanges();
@@ -414,7 +431,7 @@ namespace wasteless.Services
             catch (Exception e)
             {
                 log.Error(e.ToString());
-                return ean;
+                return null;
             }
         }
         #endregion
