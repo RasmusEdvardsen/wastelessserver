@@ -16,8 +16,6 @@ namespace wasteless.Controllers
             //TODO: MOVE INLINED CSS TO Site.css INSTEAD!
             //TODO: CONSIDER AUTH ISLOGGEDIN ELSEWHERE (LIKE GLOBAL.ASAX)
             //TODO: IMPLEMENT LOGOUT FUNCTIONALITY
-            //TODO: GIVE BOXES ACTIONLINKS!
-            //TODO: IF PATH NOT CONTAINS "HOME", PUT MENUS IN NAVBAR
             try
             {
                 ViewBag.IsLoggedIn = false;

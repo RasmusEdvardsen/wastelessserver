@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Caching;
 using wasteless.EntityModel;
 using wasteless.Forms;
+using wasteless.Models.DataTransferObjects;
 
 namespace wasteless.Services
 {
@@ -99,7 +100,9 @@ namespace wasteless.Services
         {
             using (var db = new wastelessdbEntities())
             {
-                return db.FoodTypes.FirstOrDefault(x => x.FoodTypeID == eanId);
+                var ean = db.EANs.FirstOrDefault(x => x.EANID == eanId);
+                var foodType = db.FoodTypes.FirstOrDefault(x => x.FoodTypeID == ean.FoodTypeID);
+                return foodType;
             }
         }
         #endregion FoodTypes
@@ -268,7 +271,6 @@ namespace wasteless.Services
                         db.Noises.Add(toAdd);
                         db.SaveChanges();
                         
-                        //TODO: CONSIDER CacheService.cs !
                         var listToCache = HttpContext.Current.Cache["noisewords"] as List<string>;
                         if (listToCache== null)
                             listToCache = DBService.GetNoises().Select(x => x.NoiseWord).ToList();
@@ -360,6 +362,27 @@ namespace wasteless.Services
                 log.Error(e.ToString());
                 return false;
             }
+        }
+
+        public static List<ProductsConcreteDto> ProductsToConcrete(List<Product> products)
+        {
+            var list = new List<ProductsConcreteDto>();
+            foreach (var product in products)
+            {
+                try
+                {
+                    var productConcrete = new ProductsConcreteDto();
+                    productConcrete.Id = product.ProductID;
+                    productConcrete.Name = GetFoodType(product.EANID ?? default(int)).FoodTypeName;
+                    productConcrete.ExpiryDate = product.ExpirationDate;
+                    list.Add(productConcrete);
+                }
+                catch (Exception e)
+                {
+                    log.Error(e.ToString());
+                }
+            }
+            return list;
         }
         #endregion
 

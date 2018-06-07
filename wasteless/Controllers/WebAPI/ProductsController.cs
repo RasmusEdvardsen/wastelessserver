@@ -7,7 +7,7 @@ using System.Web.Http;
 using wasteless.EntityModel;
 using Newtonsoft.Json;
 using wasteless.Services;
-using System.Reflection;
+using wasteless.Models.DataTransferObjects;
 
 namespace wasteless.Controllers.WebAPI
 {
@@ -21,12 +21,24 @@ namespace wasteless.Controllers.WebAPI
         }
 
         // GET: api/Product/5
-        public IHttpActionResult Get(int userID) //TODO:?concreteproducts=true
+        public IHttpActionResult Get(int userID, string format = "relative")
         {
             var products = DBService.GetProductsForUser(userID);
-            return products.Any() 
-                ? ResponseMessage(new HttpResponseMessage(HttpStatusCode.OK) { Content = new StringContent(JsonConvert.SerializeObject(products)) })
-                : ResponseMessage(new HttpResponseMessage(HttpStatusCode.InternalServerError));
+            switch (format)
+            {
+                case "concrete":
+                    //var productsConcreteDtos = products.Select(x => new ProductsConcreteDto { Id = x.ProductID, Name = DBService.GetFoodType(x.EANID ?? default(int)).FoodTypeName, ExpiryDate = x.ExpirationDate ?? new DateTime() });
+                    var list = DBService.ProductsToConcrete(products);
+                    return list.Any()
+                        ? ResponseMessage(new HttpResponseMessage(HttpStatusCode.OK) { Content = new StringContent(JsonConvert.SerializeObject(list)) })
+                        : ResponseMessage(new HttpResponseMessage(HttpStatusCode.InternalServerError));
+                case "relative":
+                default:
+                    return products.Any() 
+                        ? ResponseMessage(new HttpResponseMessage(HttpStatusCode.OK) { Content = new StringContent(JsonConvert.SerializeObject(products)) })
+                        : ResponseMessage(new HttpResponseMessage(HttpStatusCode.InternalServerError));
+
+            }
         }
 
         // POST: api/Product
