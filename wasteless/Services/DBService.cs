@@ -323,20 +323,26 @@ namespace wasteless.Services
             }
         }
 
-        public static void DeleteProduct(int id)
+        public static bool DeleteProduct(int productId, int userId)
         {
             try
             {
                 using (var db = new wastelessdbEntities())
                 {
-                    var toRemove = db.Products.First(x => x.ProductID == id);
-                    db.Products.Remove(toRemove);
-                    db.SaveChanges();
+                    var toRemove = db.Products.First(x => x.ProductID == productId);
+                    if (toRemove.UserID == userId)
+                    {
+                        db.Products.Remove(toRemove);
+                        db.SaveChanges();
+                        return true;
+                    }
+                    return false;
                 }
             }
             catch (Exception e)
             {
                 log.Error(e.ToString());
+                return false;
             }
         }
 

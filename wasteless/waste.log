@@ -1405,3 +1405,27 @@ The statement has been terminated.
    at wasteless.Services.ScrapeService.ScrapeGoogle(String id) in C:\Users\Epico-u-01\source\repos\wasteless\wasteless\Services\ScrapeService.cs:line 58
 2018-06-06 21:11:20,634 [10] ERROR wasteless.Services.ScrapeService - System.NullReferenceException: Object reference not set to an instance of an object.
    at wasteless.Services.ScrapeService.ScrapeGoogle(String id) in C:\Users\Epico-u-01\source\repos\wasteless\wasteless\Services\ScrapeService.cs:line 58
+2018-06-07 21:07:18,825 [8] ERROR wasteless.Services.DBService - System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__0[TResult](IEnumerable`1 sequence)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[TResult](Expression expression)
+   at System.Data.Entity.Internal.Linq.DbQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.First[TSource](IQueryable`1 source, Expression`1 predicate)
+   at wasteless.Services.DBService.DeleteProduct(Int32 id) in C:\Users\Epico-u-01\source\repos\wasteless\wasteless\Services\DBService.cs:line 332
+2018-06-07 21:07:41,116 [9] ERROR wasteless.Services.DBService - System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__0[TResult](IEnumerable`1 sequence)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[TResult](Expression expression)
+   at System.Data.Entity.Internal.Linq.DbQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.First[TSource](IQueryable`1 source, Expression`1 predicate)
+   at wasteless.Services.DBService.DeleteProduct(Int32 id)
+2018-06-07 21:16:18,293 [7] ERROR wasteless.Services.DBService - System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__0[TResult](IEnumerable`1 sequence)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[TResult](Expression expression)
+   at System.Data.Entity.Internal.Linq.DbQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.First[TSource](IQueryable`1 source, Expression`1 predicate)
+   at wasteless.Services.DBService.DeleteProduct(Int32 productId, Int32 userId)

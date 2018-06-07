@@ -64,10 +64,9 @@ namespace wasteless.Controllers.WebAPI
         }
 
         // DELETE: api/Product/5
-        public IHttpActionResult Delete(int id)
+        public IHttpActionResult Delete(int productId, int userId)
         {
-            IHttpActionResult response = ResponseMessage(new HttpResponseMessage(HttpStatusCode.NotImplemented));
-            return response;
+            return DBService.DeleteProduct(productId, userId) ? (IHttpActionResult) Ok() : (IHttpActionResult) NotFound();
         }
         
     }
