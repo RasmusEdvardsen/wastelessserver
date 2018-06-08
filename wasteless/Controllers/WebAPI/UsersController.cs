@@ -7,6 +7,7 @@ using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Web.Http;
+using wasteless.Models.DataTransferObjects;
 using wasteless.Services;
 
 namespace wasteless.Controllers.WebAPI
@@ -25,10 +26,10 @@ namespace wasteless.Controllers.WebAPI
         // GET: api/Users/5
         public IHttpActionResult Get(string email, string password)
         {
-            var user = DBService.GetUser(email, password);
-
-            var httpStatusCode = user != null ? HttpStatusCode.OK : HttpStatusCode.NotFound;
-            var content = user != null ? JsonConvert.SerializeObject(user) : "";
+            UserConcreteDto user = new UserConcreteDto(DBService.GetUser(email, password));
+            
+            var httpStatusCode = user.HasRequiredValues ? HttpStatusCode.OK : HttpStatusCode.NotFound;
+            var content = user.HasRequiredValues ? JsonConvert.SerializeObject(user) : "";
 
             var rspMsg = new HttpResponseMessage()
             {
@@ -44,10 +45,9 @@ namespace wasteless.Controllers.WebAPI
         public IHttpActionResult Post([FromBody]UserPostDTO userPostDTO)
         {
             var rspMsg = new HttpResponseMessage(HttpStatusCode.NotAcceptable);
-            //this.Validate<UserPostDTO>(userPostDTO);
             if (ModelState.IsValid)
             {
-                var user = DBService.ClientSignup(userPostDTO.email, userPostDTO.password);
+                UserConcreteDto user = new UserConcreteDto(DBService.ClientSignup(userPostDTO.email, userPostDTO.password));
                 if (user != null)
                 {
                     rspMsg.StatusCode = HttpStatusCode.OK;

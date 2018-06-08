@@ -216,6 +216,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\DataTransferObjects\UserConcreteDto.cs" />
     <Compile Include="Models\FoodTypeListViewModel.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
@@ -226,6 +227,7 @@
     <Compile Include="Services\AuthService.cs" />
     <Compile Include="Services\CacheService.cs" />
     <Compile Include="Services\DBService.cs" />
+    <Compile Include="Services\EmailService.cs" />
     <Compile Include="Services\ScrapeService.cs" />
   </ItemGroup>
   <ItemGroup>
