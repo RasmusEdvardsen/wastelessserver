@@ -176,6 +176,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\FoodTypeController.cs" />
     <Compile Include="Controllers\NoiseController.cs" />
+    <Compile Include="Controllers\PrivacyPolicyController.cs" />
     <Compile Include="Controllers\WebAPI\CacheController.cs" />
     <Compile Include="Controllers\WebAPI\FoodtypesController.cs" />
     <Compile Include="Controllers\WebAPI\NoisesController.cs" />
@@ -287,6 +288,7 @@
     <Content Include="Views\FoodType\FoodType.cshtml" />
     <Content Include="Views\Home\_Menu.cshtml" />
     <Content Include="Views\Noise\Noise.cshtml" />
+    <Content Include="Views\PrivacyPolicy\PrivacyPolicy.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
