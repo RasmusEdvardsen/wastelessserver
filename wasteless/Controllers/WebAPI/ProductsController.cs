@@ -41,12 +41,12 @@ namespace wasteless.Controllers.WebAPI
             }
         }
 
-        // POST: api/Product
+        [HttpPost]
         public IHttpActionResult Post([FromBody]ProductDTO productDTO)
         {
             var httpRspMsg = new HttpResponseMessage(HttpStatusCode.InternalServerError);
             var ean = DBService.CreateEAN(productDTO.EAN, productDTO.FoodTypeName);
-            if(ean != null)
+            if (ean != null)
             {
                 var product = DBService.CreateProduct(new Product() { UserID = productDTO.UserID, EANID = ean.EANID, ExpirationDate = productDTO.ExpirationDate });
                 if (ean != null && product)
@@ -68,13 +68,11 @@ namespace wasteless.Controllers.WebAPI
         {
             return DBService.DeleteProduct(productId, userId) ? (IHttpActionResult) Ok() : (IHttpActionResult) NotFound();
         }
-        
     }
-
     public class ProductDTO
     {
         public int UserID { get; set; }
-        public int EAN { get; set; }
+        public Int64 EAN { get; set; }
         public DateTime ExpirationDate { get; set; }
         public string FoodTypeName { get; set; }
     }

@@ -428,7 +428,7 @@ namespace wasteless.Services
             }
         }
 
-        public static EAN CreateEAN(int eanCode, string foodTypeName)
+        public static EAN CreateEAN(Int64 eanCode, string foodTypeName)
         {
             var ean = new EAN() { EAN_Value = eanCode.ToString(), EAN_Score = 1 };
             try
@@ -443,7 +443,8 @@ namespace wasteless.Services
                         foodtype = db.FoodTypes.FirstOrDefault(x => x.FoodTypeName.Equals(foodTypeName));
                     }
 
-                    var existingEan = db.EANs.FirstOrDefault(x => x.FoodTypeID == foodtype.FoodTypeID && x.EAN_Value == eanCode.ToString());
+                    var existingEan = db.EANs.FirstOrDefault(x => x.FoodTypeID == foodtype.FoodTypeID 
+                                                               && x.EAN_Value == eanCode.ToString());
                     if (existingEan != null)
                     {
                         existingEan.EAN_Score += 1;
