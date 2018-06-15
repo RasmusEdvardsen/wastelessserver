@@ -27,7 +27,7 @@ namespace wasteless.Controllers.WebAPI
             var barcodesToList = barcodesFromDb.OrderByDescending(x => x.EAN_Score).GroupBy(y => y.FoodTypeID).Select(z => z.FirstOrDefault()).ToList();
             
             var list = (ScrapeService.ScrapeGoogle(id) ?? new List<ScrapeService.WordScore>()).ToList();
-            list.AddRange(barcodesToList.Select(x => new ScrapeService.WordScore() { WordName = DBService.GetFoodType(x.FoodTypeID ?? default(int)).FoodTypeName, WordCount = x.EAN_Score += 25 }));
+            list.AddRange(barcodesToList.Select(x => new ScrapeService.WordScore() { WordName = DBService.GetFoodTypeById(x.FoodTypeID ?? default(int)).FoodTypeName, WordCount = x.EAN_Score += 25 }));
             
             return String.Join(", ", list.OrderByDescending(x => x.WordCount).Select(x => x.WordName));
         }

@@ -95,7 +95,16 @@ namespace wasteless.Services
                 return false;
             }
         }
-        
+
+        public static FoodType GetFoodTypeById(int foodTypeIdFromEan)
+        {
+            using (var db = new wastelessdbEntities())
+            {
+                var foodType = db.FoodTypes.FirstOrDefault(x => x.FoodTypeID == foodTypeIdFromEan);
+                return foodType;
+            }
+        }
+
         public static FoodType GetFoodType(int eanId)
         {
             using (var db = new wastelessdbEntities())
