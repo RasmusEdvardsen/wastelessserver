@@ -49,7 +49,7 @@ namespace wasteless.Controllers.WebAPI
             if (ean != null)
             {
                 var product = DBService.CreateProduct(new Product() { UserID = productDTO.UserID, EANID = ean.EANID, ExpirationDate = productDTO.ExpirationDate });
-                if (ean != null && product)
+                if (product)
                     httpRspMsg.StatusCode = HttpStatusCode.OK;
             }
             IHttpActionResult response = ResponseMessage(httpRspMsg);

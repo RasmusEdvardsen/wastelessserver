@@ -75,7 +75,6 @@ namespace wasteless.Controllers.WebAPI
         public class UserPostDTO
         {
             [EmailAddress]
-
             public string email { get; set; }
             public string password { get; set; }
         }
