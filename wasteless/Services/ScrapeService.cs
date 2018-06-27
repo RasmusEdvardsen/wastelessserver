@@ -151,7 +151,7 @@ namespace wasteless.Services
                     {
                         if (foodTypeList.Any(x=>x.Equals(word.WordName.ToLower())))
                         {
-                            word.WordCount += 30;
+                            word.WordCount += 10;
                         }
                     }
                 }
